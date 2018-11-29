@@ -38,9 +38,123 @@ function bare_bones_setup() {
     * ADD NAVIGATION MENU
     */
     register_nav_menu('main', 'Main Menu'); //register's the main menu
-
 }
+
+function style_setup() {
+	/* main style sheet */
+    wp_enqueue_style ('theme-style', get_template_directory_uri().'/css/main.css');
+}
+
+function add_custom_taxonomies() {
+
+	/* course tax */
+	$course_labels = array(
+		'name'              => _x( 'Courses', 'taxonomy general name', 'textdomain' ),
+		'singular_name'     => _x( 'Course', 'taxonomy singular name', 'textdomain' ),
+		'search_items'      => __( 'Search Courses', 'textdomain' ),
+		'all_items'         => __( 'All Courses', 'textdomain' ),
+		'parent_item'       => __( 'Parent Course', 'textdomain' ),
+		'parent_item_colon' => __( 'Parent Course:', 'textdomain' ),
+		'edit_item'         => __( 'Edit Course', 'textdomain' ),
+		'update_item'       => __( 'Update Course', 'textdomain' ),
+		'add_new_item'      => __( 'Add New Course', 'textdomain' ),
+		'new_item_name'     => __( 'New Course Name', 'textdomain' ),
+		'menu_name'         => __( 'Course', 'textdomain' ),
+	);
+
+	$course_args = array(
+		'hierarchical'      => true,
+		'labels'            => $course_labels,
+		'show_ui'           => true,
+		'show_admin_column' => true,
+		'query_var'         => true,
+		'rewrite'           => array( 'slug' => 'course' ),
+	);
+
+	register_taxonomy( 'course', array( 'post' ), $course_args );
+
+	/* student tax */
+	$student_labels = array(
+		'name'              => _x( 'Students', 'taxonomy general name', 'textdomain' ),
+		'singular_name'     => _x( 'Student', 'taxonomy singular name', 'textdomain' ),
+		'search_items'      => __( 'Search Students', 'textdomain' ),
+		'all_items'         => __( 'All Students', 'textdomain' ),
+		'parent_item'       => __( 'Parent Student', 'textdomain' ),
+		'parent_item_colon' => __( 'Parent Student:', 'textdomain' ),
+		'edit_item'         => __( 'Edit Student', 'textdomain' ),
+		'update_item'       => __( 'Update Student', 'textdomain' ),
+		'add_new_item'      => __( 'Add New Student', 'textdomain' ),
+		'new_item_name'     => __( 'New Student Name', 'textdomain' ),
+		'menu_name'         => __( 'Student', 'textdomain' ),
+	);
+
+	$student_args = array(
+		'hierarchical'      => true,
+		'labels'            => $student_labels,
+		'show_ui'           => true,
+		'show_admin_column' => true,
+		'query_var'         => true,
+		'rewrite'           => array( 'slug' => 'student' ),
+	);
+
+	register_taxonomy( 'student', array( 'post' ), $student_args );
+
+	/* major tax */
+	$major_labels = array(
+		'name'              => _x( 'Majors', 'taxonomy general name', 'textdomain' ),
+		'singular_name'     => _x( 'Major', 'taxonomy singular name', 'textdomain' ),
+		'search_items'      => __( 'Search Majors', 'textdomain' ),
+		'all_items'         => __( 'All Majors', 'textdomain' ),
+		'parent_item'       => __( 'Parent Major', 'textdomain' ),
+		'parent_item_colon' => __( 'Parent Major:', 'textdomain' ),
+		'edit_item'         => __( 'Edit Major', 'textdomain' ),
+		'update_item'       => __( 'Update Major', 'textdomain' ),
+		'add_new_item'      => __( 'Add New Major', 'textdomain' ),
+		'new_item_name'     => __( 'New Major Name', 'textdomain' ),
+		'menu_name'         => __( 'Major', 'textdomain' ),
+	);
+
+	$major_args = array(
+		'hierarchical'      => true,
+		'labels'            => $major_labels,
+		'show_ui'           => true,
+		'show_admin_column' => true,
+		'query_var'         => true,
+		'rewrite'           => array( 'slug' => 'major' ),
+	);
+
+	register_taxonomy( 'major', array( 'post' ), $major_args );
+	
+	/* professor tax */
+	$professor_labels = array(
+		'name'              => _x( 'Professors', 'taxonomy general name', 'textdomain' ),
+		'singular_name'     => _x( 'Professor', 'taxonomy singular name', 'textdomain' ),
+		'search_items'      => __( 'Search Professors', 'textdomain' ),
+		'all_items'         => __( 'All Professors', 'textdomain' ),
+		'parent_item'       => __( 'Parent Professor', 'textdomain' ),
+		'parent_item_colon' => __( 'Parent Professor:', 'textdomain' ),
+		'edit_item'         => __( 'Edit Professor', 'textdomain' ),
+		'update_item'       => __( 'Update Professor', 'textdomain' ),
+		'add_new_item'      => __( 'Add New Professor', 'textdomain' ),
+		'new_item_name'     => __( 'New Professor Name', 'textdomain' ),
+		'menu_name'         => __( 'Professor', 'textdomain' ),
+	);
+
+	$professor_args = array(
+		'hierarchical'      => true,
+		'labels'            => $professor_labels,
+		'show_ui'           => true,
+		'show_admin_column' => true,
+		'query_var'         => true,
+		'rewrite'           => array( 'slug' => 'professor' ),
+	);
+
+	register_taxonomy( 'professor', array( 'post' ), $professor_args );
+}
+
 add_action('after_setup_theme','bare_bones_setup');
+add_action('wp_loaded','style_setup');
+add_action( 'init', 'add_custom_taxonomies', 0 );
 
 /*
  * Allow for custom headr image
