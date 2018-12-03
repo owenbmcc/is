@@ -1,3 +1,34 @@
+/* main styles */
+
+@import url('https://fonts.googleapis.com/css?family=Lora');
+@import url('https://fonts.googleapis.com/css?family=Karla');
+@import url('https://fonts.googleapis.com/css?family=Amiri');
+
+$lora: 'Lora', serif;
+.lora { font-family: $lora; }
+$karla: 'Karla', sans-serif;
+.karla { font-family: $karla; }
+$amiri: 'Amiri', serif;
+.amiri { font-family: $amiri; }
+
+/* colors */
+$bg: aliceblue;
+$accent: #5DD8C8;
+$bold: #2480d2;
+$light: #D1E5F7;
+$highlight: #9b26ff;
+
+* { box-sizing:border-box; }
+
 body {
-	background-color: plum;
+	margin: 0;
+	padding: 0;
 }
+
+a { 
+	text-decoration: none;
+	color: black;
+}
+
+@import 'menu';
+@import 'front';

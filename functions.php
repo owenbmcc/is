@@ -27,6 +27,7 @@ function bare_bones_setup() {
         set_post_thumbnail_size( 150, 150, true ); // default thumb size (true means it is cropped)
 
         // additional image sizes
+        add_image_size( 'front-page', 1920, 999 );
         add_image_size( 'post-featured', 1250, 9999 ); //1250 pixels wide (and unlimited height)
         add_image_size( 'post-large', 800, 600, true ); //800 wide by 600 high (cropped)
         add_image_size( 'post-medium', 600, 400, true ); //600 wide by 400 high (cropped)

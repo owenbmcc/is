@@ -1,4 +1,111 @@
+/* main styles */
+@import url("https://fonts.googleapis.com/css?family=Lora");
+@import url("https://fonts.googleapis.com/css?family=Karla");
+@import url("https://fonts.googleapis.com/css?family=Amiri");
+.lora {
+  font-family: "Lora", serif; }
+
+.karla {
+  font-family: "Karla", sans-serif; }
+
+.amiri {
+  font-family: "Amiri", serif; }
+
+/* colors */
+* {
+  box-sizing: border-box; }
+
 body {
-  background-color: plum; }
+  margin: 0;
+  padding: 0; }
+
+a {
+  text-decoration: none;
+  color: black; }
+
+#header {
+  position: relative;
+  z-index: 99; }
+
+#main-menu .menu-item {
+  line-height: 2.5em;
+  height: 2.5em; }
+#main-menu .menu-item:first-child {
+  border-left: none;
+  padding-left: 2.5em; }
+
+#logo {
+  position: absolute;
+  cursor: pointer;
+  height: 5em; }
+  #logo img {
+    height: 100%; }
+
+.menu {
+  background: white;
+  font-family: "Amiri", serif;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  display: none; }
+  .menu.open {
+    display: flex; }
+  .menu .menu-item {
+    flex: 1 0 auto;
+    font-size: 2em;
+    text-align: center;
+    border-bottom: 1px solid black;
+    border-left: 1px solid black;
+    padding: 0 1em;
+    cursor: pointer;
+    transition: background-color 300ms; }
+    .menu .menu-item:hover {
+      background-color: #5DD8C8; }
+  .menu.course .menu-item {
+    font-size: 1.5em; }
+
+#features {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: aliceblue; }
+  #features .post {
+    opacity: 0;
+    transition: opacity 1000ms ease-in-out; }
+    #features .post:first-child {
+      opacity: 1; }
+    #features .post .info {
+      font-family: "Karla", sans-serif;
+      background-color: white;
+      border: 1px solid black;
+      position: absolute;
+      bottom: 4em;
+      right: 4em;
+      padding: 0.5em 1em;
+      z-index: 1;
+      transition: background-color 300ms; }
+      #features .post .info:hover {
+        background-color: #5DD8C8; }
+      #features .post .info .title {
+        font-size: 3em; }
+        #features .post .info .title:hover {
+          text-decoration: underline; }
+      #features .post .info .course:hover, #features .post .info .major:hover {
+        text-decoration: underline; }
+    #features .post .image {
+      height: 100%;
+      width: 100%;
+      position: fixed;
+      display: flex;
+      align-items: center; }
+      #features .post .image img {
+        width: 100%;
+        height: auto;
+        vertical-align: middle;
+        line-height: 100%; }
 
 /*# sourceMappingURL=main.css.map */
