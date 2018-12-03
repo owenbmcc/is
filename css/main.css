@@ -1,16 +1,7 @@
 /* main styles */
-@import url("https://fonts.googleapis.com/css?family=Lora");
-@import url("https://fonts.googleapis.com/css?family=Karla");
 @import url("https://fonts.googleapis.com/css?family=Amiri");
-.lora {
-  font-family: "Lora", serif; }
-
-.karla {
-  font-family: "Karla", sans-serif; }
-
-.amiri {
-  font-family: "Amiri", serif; }
-
+@import url("https://fonts.googleapis.com/css?family=Work+Sans:300,400,500");
+@import url("https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,700");
 /* colors */
 * {
   box-sizing: border-box; }
@@ -25,7 +16,8 @@ a {
 
 #header {
   position: relative;
-  z-index: 99; }
+  z-index: 99;
+  height: 2.5em; }
 
 #main-menu .menu-item {
   line-height: 2.5em;
@@ -42,27 +34,36 @@ a {
     height: 100%; }
 
 .menu {
-  background: white;
-  font-family: "Amiri", serif;
+  /*background: white;*/
+  background-color: #b2d4ff;
+  color: #0052b9;
+  font-family: "Josefin Sans", serif;
+  font-weight: 300;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   display: none; }
+  .menu a {
+    color: #0052b9; }
   .menu.open {
     display: flex; }
   .menu .menu-item {
     flex: 1 0 auto;
     font-size: 2em;
     text-align: center;
-    border-bottom: 1px solid black;
-    border-left: 1px solid black;
+    border-bottom: 2px solid #ffb482;
+    border-left: 2px solid #ffb482;
     padding: 0 1em;
     cursor: pointer;
-    transition: background-color 300ms; }
+    transition: background-color 300ms;
+    /*line-height: 0;*/
+    line-height: 2; }
     .menu .menu-item:hover {
-      background-color: #5DD8C8; }
+      background-color: #ffb482; }
+    .menu .menu-item:hover, .menu .menu-item a:hover {
+      text-decoration: underline; }
   .menu.course .menu-item {
     font-size: 1.5em; }
 
@@ -72,30 +73,35 @@ a {
   right: 0;
   left: 0;
   bottom: 0;
-  background-color: aliceblue; }
+  /**/ }
   #features .post {
     opacity: 0;
     transition: opacity 1000ms ease-in-out; }
     #features .post:first-child {
       opacity: 1; }
     #features .post .info {
-      font-family: "Karla", sans-serif;
-      background-color: white;
-      border: 1px solid black;
+      font-family: "Work Sans", sans-serif;
+      background-color: #b2d4ff;
+      border: 2px solid #ffb482;
       position: absolute;
       bottom: 4em;
       right: 4em;
       padding: 0.5em 1em;
       z-index: 1;
       transition: background-color 300ms; }
+      #features .post .info a {
+        color: #0052b9; }
       #features .post .info:hover {
-        background-color: #5DD8C8; }
+        /*background-color: $bmcc-blue;*/ }
       #features .post .info .title {
-        font-size: 3em; }
+        font-size: 4em; }
         #features .post .info .title:hover {
           text-decoration: underline; }
-      #features .post .info .course:hover, #features .post .info .major:hover {
-        text-decoration: underline; }
+      #features .post .info .course, #features .post .info .major {
+        /*font-family: $text;*/
+        font-weight: 300; }
+        #features .post .info .course:hover, #features .post .info .major:hover {
+          text-decoration: underline; }
     #features .post .image {
       height: 100%;
       width: 100%;
@@ -107,5 +113,46 @@ a {
         height: auto;
         vertical-align: middle;
         line-height: 100%; }
+
+.container {
+  padding: 2.5em 5em;
+  margin-top: 2.5em; }
+
+.page .title, .post .title, .archive .title {
+  font-size: 3em;
+  font-family: "Josefin Sans", serif;
+  color: #0052b9;
+  border-bottom: 2px solid #ffb482; }
+.page .content, .post .content, .archive .content {
+  font-size: 1.25em;
+  font-family: "Work Sans", sans-serif;
+  color: #0052b9; }
+.page .project-grid, .post .project-grid, .archive .project-grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center; }
+  .page .project-grid .project, .post .project-grid .project, .archive .project-grid .project {
+    flex: 1 0 auto; }
+  .page .project-grid .title, .post .project-grid .title, .archive .project-grid .title {
+    border-bottom: none; }
+
+#footer {
+  background: #b2d4ff;
+  color: #0052b9;
+  font-family: "Josefin Sans", serif;
+  border-top: 2px solid #0052b9; }
+  #footer .two-column {
+    display: grid;
+    padding: 1em;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 2em; }
+  #footer #bmcc-logo {
+    max-width: 300px; }
+  #footer .bottom {
+    padding: 0.25em 1em;
+    color: "Josefin Sans", serif;
+    border-top: 2px solid #ffb482; }
 
 /*# sourceMappingURL=main.css.map */

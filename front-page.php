@@ -58,7 +58,7 @@
 			}
 			posts[count].style.opacity = 1;
 		}
-		setInterval(nextPost, 2000);
+		setInterval(nextPost, 5000);
 
 	</script>
 

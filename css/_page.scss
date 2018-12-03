@@ -1,0 +1,41 @@
+.container {
+	padding: 2.5em 5em;
+	margin-top: 2.5em;
+}
+
+.page, .post, .archive {
+
+	.title {
+		font-size: 3em;
+		font-family: $text;
+		color: $text-color;
+
+		border-bottom: 2px solid $bmcc-orange;
+	}
+
+	.content {
+		font-size: 1.25em;
+		font-family: $title;
+		color: $text-color;
+	}
+
+	.project-grid {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		align-items: center;
+  		justify-content: center;
+		
+		.project {
+			flex: 1 0 auto;
+		}
+		
+		.title {
+			border-bottom: none;
+		}
+		
+		.thumbnail {}
+
+	}
+}
+

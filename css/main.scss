@@ -1,22 +1,18 @@
 /* main styles */
 
-@import url('https://fonts.googleapis.com/css?family=Lora');
-@import url('https://fonts.googleapis.com/css?family=Karla');
 @import url('https://fonts.googleapis.com/css?family=Amiri');
+@import url('https://fonts.googleapis.com/css?family=Work+Sans:300,400,500');
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,700');
 
-$lora: 'Lora', serif;
-.lora { font-family: $lora; }
-$karla: 'Karla', sans-serif;
-.karla { font-family: $karla; }
-$amiri: 'Amiri', serif;
-.amiri { font-family: $amiri; }
+$text: 'Josefin Sans', serif;
+$title: 'Work Sans', sans-serif;
+$body: 'Amiri', serif;
 
 /* colors */
-$bg: aliceblue;
-$accent: #5DD8C8;
-$bold: #2480d2;
-$light: #D1E5F7;
-$highlight: #9b26ff;
+$bmcc-orange: #ffb482;
+$bmcc-blue: #b2d4ff;
+$accent: #ffea6c;
+$text-color: #0052b9;
 
 * { box-sizing:border-box; }
 
@@ -32,3 +28,5 @@ a {
 
 @import 'menu';
 @import 'front';
+@import 'page';
+@import 'footer';

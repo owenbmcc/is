@@ -43,8 +43,8 @@
 					$terms = get_terms(  $taxonomy->name );
 					echo '<div id="' . $menu . '-menu" class="menu ' . $menu . '">';
 					foreach ( $terms as $term) {
-						echo'<div class="menu-item">';
-						echo '<p>' . $term->name . '</p>';
+						echo '<div class="menu-item">';
+						echo '<a href="' . get_term_link( $term ) . '">' . $term->name . '</a>' ;
 						echo '</div>';
 					}
 					echo '</div>';
@@ -60,6 +60,7 @@
 		</div>
 	</div>
 
+	<!-- menu/sub menu script -->
 	<script>
 
 		const logo = document.getElementById('logo');

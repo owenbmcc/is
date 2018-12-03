@@ -1,6 +1,7 @@
 #header {
 	position: relative;
 	z-index: 99;
+	height: 2.5em;
 }
 
 #main-menu {
@@ -28,9 +29,17 @@
 
 .menu {
 
-	background: white;
+	/*background: white;*/
+	background-color: $bmcc-blue;
+
+
+	color: $text-color;
+	& a {
+		color: $text-color;
+	}
 	
-	font-family: $amiri;
+	font-family: $text;
+	font-weight: 300;
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
@@ -49,14 +58,22 @@
 		font-size: 2em;
 		
 		text-align: center;
-		border-bottom: 1px solid black;
-		border-left: 1px solid black;
+		border-bottom: 2px solid $bmcc-orange;
+		border-left: 2px solid $bmcc-orange;
 	
 		padding: 0 1em;
 		cursor: pointer;
 		transition: background-color 300ms;
+
+		/*line-height: 0;*/
+		line-height: 2;
+
+
  		&:hover { 
-			background-color: $accent;
+			background-color: $bmcc-orange;
+ 		}
+ 		&:hover, & a:hover {
+ 			text-decoration: underline;
  		}
 	}
 

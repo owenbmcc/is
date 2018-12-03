@@ -48,6 +48,11 @@ function style_setup() {
 
 function add_custom_taxonomies() {
 
+	/*
+		based on Chris Stein media creators
+		https://github.com/profstein/media-creators-plugin/blob/master/media-creators/media-creators.php
+	*/
+
 	/* course tax */
 	$course_labels = array(
 		'name'              => _x( 'Courses', 'taxonomy general name', 'textdomain' ),
@@ -80,25 +85,29 @@ function add_custom_taxonomies() {
 		'singular_name'     => _x( 'Student', 'taxonomy singular name', 'textdomain' ),
 		'search_items'      => __( 'Search Students', 'textdomain' ),
 		'all_items'         => __( 'All Students', 'textdomain' ),
-		'parent_item'       => __( 'Parent Student', 'textdomain' ),
-		'parent_item_colon' => __( 'Parent Student:', 'textdomain' ),
+		'parent_item'       => null,
+		'parent_item_colon' => null,
 		'edit_item'         => __( 'Edit Student', 'textdomain' ),
 		'update_item'       => __( 'Update Student', 'textdomain' ),
 		'add_new_item'      => __( 'Add New Student', 'textdomain' ),
 		'new_item_name'     => __( 'New Student Name', 'textdomain' ),
+		'separate_items_with_commas' => null,
+    	'add_or_remove_items'   => __( 'Add or remove students' ),
+    	'choose_from_most_used' => __( 'Choose from the already used students' ),
 		'menu_name'         => __( 'Student', 'textdomain' ),
 	);
 
 	$student_args = array(
-		'hierarchical'      => true,
+		'hierarchical'      => false,
 		'labels'            => $student_labels,
 		'show_ui'           => true,
 		'show_admin_column' => true,
 		'query_var'         => true,
+		'update_count_callback' => '_update_post_term_count',
 		'rewrite'           => array( 'slug' => 'student' ),
 	);
 
-	register_taxonomy( 'student', array( 'post' ), $student_args );
+	register_taxonomy( 'students', 'post', $student_args );
 
 	/* major tax */
 	$major_labels = array(
@@ -132,8 +141,11 @@ function add_custom_taxonomies() {
 		'singular_name'     => _x( 'Professor', 'taxonomy singular name', 'textdomain' ),
 		'search_items'      => __( 'Search Professors', 'textdomain' ),
 		'all_items'         => __( 'All Professors', 'textdomain' ),
-		'parent_item'       => __( 'Parent Professor', 'textdomain' ),
-		'parent_item_colon' => __( 'Parent Professor:', 'textdomain' ),
+		'parent_item'       => null,
+		'parent_item_colon' => null,
+		'separate_items_with_commas' => null,
+		'add_or_remove_items'   => __( 'Add or remove Professors' ),
+		'choose_from_most_used' => __( 'Choose from the already used Professors' ),
 		'edit_item'         => __( 'Edit Professor', 'textdomain' ),
 		'update_item'       => __( 'Update Professor', 'textdomain' ),
 		'add_new_item'      => __( 'Add New Professor', 'textdomain' ),
@@ -142,15 +154,16 @@ function add_custom_taxonomies() {
 	);
 
 	$professor_args = array(
-		'hierarchical'      => true,
+		'hierarchical'      => false,
 		'labels'            => $professor_labels,
 		'show_ui'           => true,
 		'show_admin_column' => true,
 		'query_var'         => true,
+		'update_count_callback' => '_update_post_term_count',
 		'rewrite'           => array( 'slug' => 'professor' ),
 	);
 
-	register_taxonomy( 'professor', array( 'post' ), $professor_args );
+	register_taxonomy( 'professors', 'post', $professor_args );
 }
 
 add_action('after_setup_theme','bare_bones_setup');
