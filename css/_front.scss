@@ -8,7 +8,7 @@
 
 	/**/
 
-	.post {
+	.feature {
 
 		opacity: 0;
 		transition: opacity 1000ms ease-in-out;
@@ -35,18 +35,22 @@
  			&:hover { 
 				/*background-color: $bmcc-blue;*/
  			}
+
 			.title {
 				font-size: 4em;
-				&:hover {
-					text-decoration: underline;
-				}
+
+				
+				
 			}
 			.course, .major {
 				/*font-family: $text;*/
 				font-weight: 300;
-				&:hover {
-					text-decoration: underline;
-				}
+				
+			}
+
+			a:hover {
+				text-decoration: none;
+				background: linear-gradient(to bottom, $bmcc-blue 40%, $bmcc-orange 40%);
 			}
 
 		}

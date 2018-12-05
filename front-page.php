@@ -8,7 +8,7 @@
 			$post_id = get_the_ID();
 
 	?>
-		<div class="post">
+		<div class="feature">
 			<div class="info">
 				<div class="title">
 					<a href="<?php the_permalink(); ?>">
@@ -47,19 +47,19 @@
 	<?php endwhile; endif; wp_reset_postdata(); ?>
 
 	<script>
-		const posts = document.getElementsByClassName('post');
+		/* fade in/out features */
+		const features = document.getElementsByClassName('feature');
 		let count = 0;
-		function nextPost() {
-			posts[count].style.opacity = 0;
-			if (count < posts.length - 1) {
+		function nextFeature() {
+			features[count].style.opacity = 0;
+			if (count < features.length - 1) {
 				count ++;
 			} else {
 				count = 0;
 			}
-			posts[count].style.opacity = 1;
+			features[count].style.opacity = 1;
 		}
-		setInterval(nextPost, 5000);
-
+		// setInterval(nextFeature, 5000);
 	</script>
 
 

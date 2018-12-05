@@ -9,3 +9,27 @@
 */
 
 @import 'css/main';
+
+
+/*
+	notes
+
+	things that need updating/ style guide
+	- need large images, dark colors
+	- descriptions for majors and courses
+	- faculty pages?
+	- shorter project titles
+	- show related course work?
+	<!-- 	
+		<div class="related-work row">
+			<?php get_template_part('related-work-student'); ?>
+			<?php get_template_part('related-work-major'); ?>
+			<?php get_template_part('related-work-course'); ?>
+		</div>
+		-->
+
+	to do
+	- html in category deks?
+	- https://plugins.trac.wordpress.org/browser/allow-html-in-category-descriptions/trunk/html-in-category-descriptions.php
+
+*/

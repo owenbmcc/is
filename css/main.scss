@@ -10,6 +10,7 @@ $body: 'Amiri', serif;
 
 /* colors */
 $bmcc-orange: #ffb482;
+$orange: #ff6600;
 $bmcc-blue: #b2d4ff;
 $accent: #ffea6c;
 $text-color: #0052b9;
@@ -24,6 +25,9 @@ body {
 a { 
 	text-decoration: none;
 	color: black;
+	&:hover {
+		text-decoration: underline;
+	}
 }
 
 @import 'menu';

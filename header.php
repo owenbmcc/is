@@ -17,13 +17,14 @@
 </head>
 
 <body <?php body_class(); ?>>
+	
 
 	<div id="header">
 		<div id="logo">
 			<img src="<?php echo get_template_directory_uri(); ?>/img/mea.svg">
 		</div>
 		
-		<div id="main-menu" class="menu">
+		<div id="main-menu" class="menu <?php echo is_front_page() ? '':'open'; ?>">
 			<div class="menu-item">
 				<a href="<?php echo get_home_url(); ?>">Home</a>
 			</div>
@@ -53,10 +54,18 @@
 		?>
 
 		<div id="discipline-menu" class="menu">
-			<div class="menu-item">Animation</div>
-			<div class="menu-item">Film and Video</div>
-			<div class="menu-item">Graphic Design</div>
-			<div class="menu-item">Interactive Design</div>
+			<div class="menu-item">
+				<a href="<?php echo get_home_url(); ?>/category/animation/">Animation</a>
+			</div>
+			<div class="menu-item">
+				<a href="<?php echo get_home_url(); ?>/category/film-video/">Film & Video</a>
+			</div>
+			<div class="menu-item">
+				<a href="<?php echo get_home_url(); ?>/category/graphic-design/">Graphic Design</a>
+			</div>
+			<div class="menu-item">
+				<a href="<?php echo get_home_url(); ?>/category/interactive/">Interactive</a>
+			</div>
 		</div>
 	</div>
 
