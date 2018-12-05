@@ -21,7 +21,10 @@
 
 	<div id="header">
 		<div id="logo">
-			<img src="<?php echo get_template_directory_uri(); ?>/img/mea.svg">
+			<?php
+				$url =  get_template_directory_uri() . '/img/mea.svg';
+				echo file_get_contents( $url ); 
+			?>
 		</div>
 		
 		<div id="main-menu" class="menu <?php echo is_front_page() ? '':'open'; ?>">

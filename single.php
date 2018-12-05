@@ -4,30 +4,49 @@
 	
 	<div id="post-<?php the_ID(); ?>" class="post" >
 		
-		<div class="post-header">	
-			<div class="featured-image">
-				<?php if ( has_post_thumbnail() ) : ?>
-					<?php the_post_thumbnail( 'post-featured', array( 'class' => 'img-fluid' ) );?>
-				<?php endif; ?>
-			</div>
-			<div class="title">
- 				<?php the_title(); ?>
-			</div>
+		<div class="post-header">
+			<?php
+				$video_url = explode( "\n", get_post_meta( $post->ID, 'enclosure', true ) )[0];
+				if ($video_url) { ?>
+					<div class="featured-video">
+						<video src="<?php echo $video_url; ?>" controls>
+					</div>
+			<?php  } else { ?>
+				<div class="featured-image">
+					<?php if ( has_post_thumbnail() ) : ?>
+						<?php the_post_thumbnail( 'post-featured', array( 'class' => 'img-fluid' ) );?>
+					<?php endif; ?>
+				</div>
+				<div class="title">
+ 					<?php the_title(); ?>
+				</div>
+			<?php } ?>
 		</div>
 
 		<div class="content single">
-			
-			<div class="student">
-				Student: <?php echo get_the_term_list( $post->ID, 'students', ' ',', '); ?> 
-				<!-- comma for multiple students -->
-			</div>
-			
-			<div class="major">
-				Major: <?php echo get_the_term_list( $post->ID, 'major'); ?>
-			</div>
 
-			<div class="course">
-				Course: <?php echo get_the_term_list( $post->ID, 'course'); ?>
+			<div class="info">
+				<div class="student">
+					<div class="label">Student</div>
+					<div class="value">
+						<?php echo get_the_term_list( $post->ID, 'students', ' ',', '); ?>
+					</div>
+					<!-- comma for multiple students -->
+				</div>
+				
+				<div class="major">
+					<div class="label">Major</div>
+					<div class="value">
+						<?php echo get_the_term_list( $post->ID, 'major'); ?>
+					</div>
+				</div>
+
+				<div class="course">
+					<div class="label">Course</div>
+					<div class="value">
+						<?php echo get_the_term_list( $post->ID, 'course'); ?>
+					</div>
+				</div>
 			</div>
 
 			<div class="main-content">
