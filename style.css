@@ -16,11 +16,18 @@
 
 	things that need updating/ style guide
 	- need large images, dark colors
+	- featured images 1920 x 1080 or 16:9 or wide
 	- descriptions for majors and courses
 	- faculty pages?
 	- shorter project titles
 	- show related course work?
 	- post formats
+	- avoid using same image for featured image and content
+	- media art and design hierarchy, display
+	- issuu, other embeds
+	- tags?
+
+	- check for taxonomies or just don't display?
 	<!-- 	
 		<div class="related-work row">
 			<?php get_template_part('related-work-student'); ?>
@@ -39,4 +46,12 @@
 	- single content, image gallery
 	- test next prev exists link
 	- slide show for different majors / disciplines
+	- figure out youtube issue
+		- vimeo - feature image is nice ... 
+		- loads vimeo but not youtube ??
+		- try on server first
+	- breakpoints - 960 large - 
+	- featured image title background with two lines of text ...
+	- p5 sketchs .. 
+	- tags ?
 */

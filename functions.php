@@ -170,6 +170,22 @@ add_action('after_setup_theme','bare_bones_setup');
 add_action('wp_loaded','style_setup');
 add_action( 'init', 'add_custom_taxonomies', 0 );
 
+/* disable media links */
+function wpb_imagelink_setup() {
+    $image_set = get_option( 'image_default_link_type' );
+     
+    if ($image_set !== 'none') {
+        update_option('image_default_link_type', 'none');
+    }
+}
+add_action('admin_init', 'wpb_imagelink_setup', 10);
+
+/* get rid of p around images */
+function filter_ptags_on_images($content){
+	return preg_replace('/<p>\\s*?(<a .*?><img.*?><\\/a>|<img.*?>)?\\s*<\\/p>/s', '\1', $content);
+}
+add_filter('the_content', 'filter_ptags_on_images');
+
 /*
  * Allow for custom headr image
  */

@@ -6,7 +6,13 @@
 		
 		<div class="post-header">
 			<?php
+				/* embedded videos generate enclosure custom field*/
 				$video_url = explode( "\n", get_post_meta( $post->ID, 'enclosure', true ) )[0];
+				/* text for a youtube video */
+				if (!$video_url) {
+					$content_post = get_post($post->ID);
+					$content = $content_post->post_content;
+				}
 				if ($video_url) { ?>
 					<div class="featured-video">
 						<video src="<?php echo $video_url; ?>" controls>
@@ -49,17 +55,39 @@
 				</div>
 			</div>
 
-			<div class="main-content">
-				<?php the_content() ?>
+			
+			<!-- if there's a main video, display content without first video -->
+			<?php if ($video_url) { ?>
+				<?php 
+					$content_post = get_post($post->ID);
+					$content = $content_post->post_content;
+					$content = preg_replace("/\[video.+video\]/i", "", $content, 1);
+					$content = apply_filters('the_content', $content);
+					$content = str_replace(']]>', ']]&gt;', $content);
+
+					/* display if there's content left over */
+					if ($content) { 
+				?>
+					<div class="main-content">
+						<?php echo $content; ?>
+					</div>
+			<?php }
+				} else { ?>
+				<!-- if no video, just show main content -->
+				<div class="main-content">
+					<?php the_content(); ?>
+				</div>
+			<?php } ?>
+				
 			</div>
 		</div>
 
-		<div class="post-footer">
-			<div class="prev-work">
-				<?php echo get_previous_post_link('Previous Work: %link', '%title'); ?>
+		<div class="post-footer menu">
+			<div class="prev-work menu-item">
+				<?php previous_post_link( '%link', 'Previous Work: %title' ); ?>
 			</div>
-			<div class="next-work">
- 				<?php echo get_next_post_link('Next Work: %link', '%title'); ?>
+			<div class="next-work menu-item">
+ 				<?php next_post_link( '%link', 'Next Work: %title' ); ?>
  			</div>
 		</div>
 	</div>

@@ -45,7 +45,7 @@
 				$taxonomy = get_taxonomy( $menu ); 
 				if ($taxonomy) {
 					$terms = get_terms(  $taxonomy->name );
-					echo '<div id="' . $menu . '-menu" class="menu ' . $menu . '">';
+					echo '<div id="' . $menu . '-menu" class="menu">';
 					foreach ( $terms as $term) {
 						echo '<div class="menu-item">';
 						echo '<a href="' . get_term_link( $term ) . '">' . $term->name . '</a>' ;

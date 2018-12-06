@@ -12,14 +12,14 @@ body {
 
 a {
   text-decoration: none;
-  color: black; }
+  color: #0052b9; }
   a:hover {
     text-decoration: underline; }
 
 #header {
   position: relative;
   z-index: 99;
-  height: 2.5em; }
+  height: 5em; }
 
 #main-menu .menu-item {
   line-height: 2.5em;
@@ -129,8 +129,9 @@ a {
   color: #0052b9;
   border-bottom: 2px solid #ffb482; }
 .page .content, .post .content, .archive .content {
-  font-size: 1.25em;
-  font-family: "Work Sans", sans-serif;
+  font-size: 1.4em;
+  font-family: "Amiri", serif;
+  line-height: 1.4;
   color: #0052b9; }
 .page .post-header, .post .post-header, .archive .post-header {
   position: relative; }
@@ -143,50 +144,16 @@ a {
     border-bottom: none;
     background: linear-gradient(to bottom, transparent 60%, #b2d4ff 60%); }
   .page .post-header .featured-image, .page .post-header .featured-video, .post .post-header .featured-image, .post .post-header .featured-video, .archive .post-header .featured-image, .archive .post-header .featured-video {
-    background-color: #ffb482;
+    background-color: #ffd3b5;
     text-align: center;
-    margin-top: 2.5em; }
-    .page .post-header .featured-image img, .page .post-header .featured-video img, .post .post-header .featured-image img, .post .post-header .featured-video img, .archive .post-header .featured-image img, .archive .post-header .featured-video img {
+    /*margin-top: 2.5em;*/ }
+    .page .post-header .featured-image img, .page .post-header .featured-image video, .page .post-header .featured-video img, .page .post-header .featured-video video, .post .post-header .featured-image img, .post .post-header .featured-image video, .post .post-header .featured-video img, .post .post-header .featured-video video, .archive .post-header .featured-image img, .archive .post-header .featured-image video, .archive .post-header .featured-video img, .archive .post-header .featured-video video {
       display: block;
       width: auto;
       height: auto;
       max-height: 640px;
-      margin: 0 auto; }
-    .page .post-header .featured-image video, .page .post-header .featured-video video, .post .post-header .featured-image video, .post .post-header .featured-video video, .archive .post-header .featured-image video, .archive .post-header .featured-video video {
-      display: block;
-      width: auto;
-      height: auto;
-      max-height: 640px;
-      margin: 0 auto; }
-.page .single .info, .post .single .info, .archive .single .info {
-  display: flex;
-  flex-wrap: wrap; }
-.page .single .student, .page .single .major, .page .single .course, .post .single .student, .post .single .major, .post .single .course, .archive .single .student, .archive .single .major, .archive .single .course {
-  flex: 1;
-  line-height: 2;
-  padding: 0 1em;
-  position: relative;
-  /*background-color: $bmcc-orange;*/
-  z-index: 0;
-  font-family: "Josefin Sans", serif; }
-  .page .single .student .label, .page .single .major .label, .page .single .course .label, .post .single .student .label, .post .single .major .label, .post .single .course .label, .archive .single .student .label, .archive .single .major .label, .archive .single .course .label {
-    color: #ffd3b5;
-    position: absolute;
-    top: -0.5em;
-    left: -6px;
-    font-size: 5em;
-    z-index: 0; }
-  .page .single .student .value, .page .single .major .value, .page .single .course .value, .post .single .student .value, .post .single .major .value, .post .single .course .value, .archive .single .student .value, .archive .single .major .value, .archive .single .course .value {
-    z-index: 1;
-    position: relative;
-    padding-top: 1em; }
-  .page .single .student .value a, .page .single .major .value a, .page .single .course .value a, .post .single .student .value a, .post .single .major .value a, .post .single .course .value a, .archive .single .student .value a, .archive .single .major .value a, .archive .single .course .value a {
-    font-size: 1.5em;
-    line-height: 1;
-    color: #0052b9;
-    z-index: 1; }
-    .page .single .student .value a:hover, .page .single .major .value a:hover, .page .single .course .value a:hover, .post .single .student .value a:hover, .post .single .major .value a:hover, .post .single .course .value a:hover, .archive .single .student .value a:hover, .archive .single .major .value a:hover, .archive .single .course .value a:hover {
-      text-decoration: underline; }
+      margin: 0 auto;
+      max-width: 100%; }
 .page .projects-header, .post .projects-header, .archive .projects-header {
   text-align: center;
   background: #b2d4ff;
@@ -220,6 +187,65 @@ a {
         width: 100%;
         height: auto;
         display: block; }
+
+.single .info {
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden; }
+.single .post-footer {
+  display: flex; }
+  .single .post-footer .menu-item {
+    border-bottom: none;
+    border-left-color: #0052b9;
+    border-top: 2px solid #0052b9;
+    height: 2em; }
+  .single .post-footer .menu-item:first-child {
+    border-left: none; }
+.single .student, .single .major, .single .course {
+  flex: 1;
+  line-height: 2;
+  padding: 0 1em;
+  position: relative;
+  /*background-color: $bmcc-orange;*/
+  z-index: 0;
+  font-family: "Josefin Sans", serif;
+  background-color: #ffd3b5; }
+  .single .student .label, .single .major .label, .single .course .label {
+    color: white;
+    position: absolute;
+    top: -0.5em;
+    left: -6px;
+    font-size: 6em;
+    z-index: 0; }
+  .single .student .value, .single .major .value, .single .course .value {
+    z-index: 1;
+    position: relative;
+    padding-top: 1em; }
+  .single .student .value a, .single .major .value a, .single .course .value a {
+    font-size: 1.5em;
+    line-height: 1;
+    color: #0052b9;
+    z-index: 1; }
+    .single .student .value a:hover, .single .major .value a:hover, .single .course .value a:hover {
+      text-decoration: underline; }
+.single .main-content {
+  padding: 2.5rem 5rem;
+  font-family: "Amiri", serif;
+  font-size: 1.5em;
+  color: #0052b9;
+  /* center images */
+  text-align: center; }
+  .single .main-content a {
+    text-decoration: underline; }
+  .single .main-content a:hover {
+    background: linear-gradient(to bottom, transparent 50%, #ffb482 50%, #ffb482 80%, transparent 80%); }
+  .single .main-content p {
+    text-align: left; }
+  .single .main-content img {
+    max-width: 100%;
+    height: auto; }
+  .single .main-content div {
+    margin: 0 auto; }
 
 #footer {
   background: #b2d4ff;

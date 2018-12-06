@@ -24,7 +24,7 @@ body {
 
 a { 
 	text-decoration: none;
-	color: black;
+	color: $text-color;
 	&:hover {
 		text-decoration: underline;
 	}
@@ -33,4 +33,5 @@ a {
 @import 'menu';
 @import 'front';
 @import 'page';
+@import 'single';
 @import 'footer';
