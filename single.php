@@ -53,6 +53,14 @@
 						<?php echo get_the_term_list( $post->ID, 'course'); ?>
 					</div>
 				</div>
+
+				<!-- <div class="course">
+					<div class="label">Professor</div>
+					<div class="value">
+						<?php echo get_the_term_list( $post->ID, 'professors'); ?>
+					</div>
+				</div> -->
+				<!-- no professors on original site -->
 			</div>
 
 			

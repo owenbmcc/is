@@ -6,6 +6,8 @@
 	left: 0;
 	bottom: 0;
 
+	background: $bmcc-blue;
+
 	/**/
 
 	.feature {
@@ -19,11 +21,13 @@
 		.info {
 			font-family: $title;
 			
-			background-color: $bmcc-blue;
+			/*background-color: $bmcc-blue;*/
+
 			& a {
-				color: $text-color;
+				color: white; /* $text-color; */
 			}
-			border: 2px solid $bmcc-orange;
+			/*border: 2px solid $bmcc-orange;*/
+
 			position: absolute;
 			bottom: 4em;
 			right: 4em;
@@ -36,21 +40,25 @@
 				/*background-color: $bmcc-blue;*/
  			}
 
+
 			.title {
 				font-size: 4em;
-
-				
-				
+			}
+			.students {
+				font-size: 1.5em;
+				font-weight: 300;
 			}
 			.course, .major {
 				/*font-family: $text;*/
 				font-weight: 300;
-				
 			}
-
+			a { 
+				background: linear-gradient(to bottom, transparent 40%, transparent 40%);
+				transition: background 300ms; 
+			}
 			a:hover {
 				text-decoration: none;
-				background: linear-gradient(to bottom, $bmcc-blue 40%, $bmcc-orange 40%);
+				background: linear-gradient(to bottom, transparent 40%, $bmcc-orange 40%);
 			}
 
 		}

@@ -34,6 +34,10 @@ a {
   #logo svg {
     width: 5em;
     height: 5em; }
+    #logo svg * {
+      transition: fill 300ms; }
+    #logo svg:hover * {
+      fill: #ffb482; }
 
 .menu {
   /*background: white;*/
@@ -75,6 +79,7 @@ a {
   right: 0;
   left: 0;
   bottom: 0;
+  background: #b2d4ff;
   /**/ }
   #features .feature {
     opacity: 0;
@@ -83,8 +88,8 @@ a {
       opacity: 1; }
     #features .feature .info {
       font-family: "Work Sans", sans-serif;
-      background-color: #b2d4ff;
-      border: 2px solid #ffb482;
+      /*background-color: $bmcc-blue;*/
+      /*border: 2px solid $bmcc-orange;*/
       position: absolute;
       bottom: 4em;
       right: 4em;
@@ -92,17 +97,24 @@ a {
       z-index: 1;
       transition: background-color 300ms; }
       #features .feature .info a {
-        color: #0052b9; }
+        color: white;
+        /* $text-color; */ }
       #features .feature .info:hover {
         /*background-color: $bmcc-blue;*/ }
       #features .feature .info .title {
         font-size: 4em; }
+      #features .feature .info .students {
+        font-size: 1.5em;
+        font-weight: 300; }
       #features .feature .info .course, #features .feature .info .major {
         /*font-family: $text;*/
         font-weight: 300; }
+      #features .feature .info a {
+        background: linear-gradient(to bottom, transparent 40%, transparent 40%);
+        transition: background 300ms; }
       #features .feature .info a:hover {
         text-decoration: none;
-        background: linear-gradient(to bottom, #b2d4ff 40%, #ffb482 40%); }
+        background: linear-gradient(to bottom, transparent 40%, #ffb482 40%); }
     #features .feature .image {
       height: 100%;
       width: 100%;

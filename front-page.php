@@ -15,29 +15,14 @@
 						<?php the_title(); ?>
 					</a>
 				</div>
+				<div class="students">
+					<?php echo get_the_term_list( $post->ID, 'students', ' ',', '); ?>
+				</div>
 				<div class="major">
-					<?php
-						$terms = get_the_terms( $post->ID , 'major' );
-						foreach ( $terms as $term ) {
-							$major = $term->name;
-							$major_link = get_term_link( $term );
-						}
-					?>
-					<a href="<?php echo $major_link; ?>">
-						<?php echo $major; ?>
-					</a>
+					<?php echo get_the_term_list( $post->ID, 'major'); ?>
 				</div>
 				<div class="course">
-					<?php
-						$terms = get_the_terms( $post->ID , 'course' );
-						foreach ( $terms as $term ) {
-							$course = $term->name;
-							$course_link = get_term_link( $term );
-						}
-					?>
-					<a href="<?php echo $course_link; ?>">
-						<?php echo $course; ?>
-					</a>
+					<?php echo get_the_term_list( $post->ID, 'course'); ?>
 				</div>
 			</div>
 			<div class="image">
@@ -59,7 +44,7 @@
 			}
 			features[count].style.opacity = 1;
 		}
-		// setInterval(nextFeature, 5000);
+		 setInterval(nextFeature, 5000);
 	</script>
 
 
