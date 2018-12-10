@@ -63,14 +63,15 @@
 
 		}
 
-		.image {
+
+		.image, .video {
 			height: 100%;
 			width: 100%;
 			position: fixed;
 			display: flex;
 			align-items: center;
 
-			img {
+			img, video {
 				width: 100%;
 				height: auto;
 				vertical-align: middle;
@@ -78,4 +79,12 @@
 			}
 		}
 	}
+}
+
+#start {
+	position: fixed;
+    top: 2px;
+    right: 2px;
+    z-index: 99;
+    font-size: 2em;	
 }

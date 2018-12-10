@@ -198,4 +198,8 @@ $args = array(
 );
 add_theme_support( 'custom-header', $args );
 
+
+/* slideshow url */
+
+
 ?>
