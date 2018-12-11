@@ -17,9 +17,10 @@
 	things that need updating/ style guide
 	- need large images, dark colors
 	- featured images 1920 x 1080 or 16:9 or wide
-	- descriptions for majors and courses
+	- descriptions for majors and courses - styling?
 	- faculty pages?
 	- shorter project titles
+	- single content, image gallery
 	- show related course work?
 	- post formats
 	- avoid using same image for featured image and content
@@ -28,6 +29,7 @@
 	- tags?
 	- play full video ?
 	- how long on images
+	- discipline deks?
 
 	- check for taxonomies or just don't display?
 	<!-- 	
@@ -39,25 +41,24 @@
 		-->
 
 	to do
-	- slide show for different majors / disciplines
-	- html in category deks?
-	- https://plugins.trac.wordpress.org/browser/allow-html-in-category-descriptions/trunk/html-in-category-descriptions.php
 	- organize CSS files
 	- comments
-	- video playing in single page?
-	- single content, image gallery
-	- figure out youtube issue
-		- vimeo - feature image is nice ... 
-		- loads vimeo but not youtube ??
-		- try on server first
 	- breakpoints - 960 large - 
 	- featured image title background with two lines of text ...
 	- p5 sketchs .. 
 	- tags ?
 	- professor ?
 	- title color on project pages with white backgrounds
-	- /animation page link
-	- 
+	- animation page link
+
+	after feedback
+	- single content, image gallery
+	- figure out youtube issue
+		- vimeo - feature image is nice ... 
+		- loads vimeo but not youtube ??
+		- try on server first
+
+	- https://plugins.trac.wordpress.org/browser/allow-html-in-category-descriptions/trunk/html-in-category-descriptions.php
 
 	- svg issue
 	- https://stackoverflow.com/questions/36952204/warning-file-get-contents-https-wrapper-is-disabled-in-the-server-configu
