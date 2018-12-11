@@ -12,9 +12,7 @@
 
 	.title {
 		font-size: 3em;
-		font-family: $text;
 		color: $text-color;
-		border-bottom: 2px solid $bmcc-orange;
 	}
 
 	.content {
@@ -56,20 +54,27 @@
 		}
 	}
 
+	.page-header {
+		font-family: $text;
+		border-bottom: 2px solid $bmcc-orange;
+	}
 
 	.projects-header {
 		text-align: center;
 		background: $bmcc-blue;
 		border-top: 2px solid $bmcc-orange;
 		line-height: 2;
-
 	}
+
+
 	
 	.gallery-header {
 		text-align: center;
 		/*background: $bmcc-blue;*/
 		line-height: 2;
 		padding-top: 1em;
+		font-family: $text;
+		border-bottom: 2px solid $bmcc-orange;
 	}
 
 	.projects-grid {

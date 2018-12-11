@@ -3,21 +3,17 @@
 <div class="container">
 	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 		<div id="post-<?php the_ID(); ?>" <?php post_class(); ?> >
-			<div class="row">
-				<!-- featured image across the top -->
-				<div class="featured-image">
-					    <!-- check if the post has a Post Thumbnail assigned to it. -->
-						<?php if ( has_post_thumbnail() ) : ?>
-							<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
-								<?php  the_post_thumbnail( 'post-medium', array( 'class' => 'img-fluid' ) );?>
-							</a>
-						<?php endif; ?>
-				</div>
-			</div><!-- end row -->
-			<div class="row">
-				<div class="title">
-					<?php the_title(); ?>
-				</div>
+			<!-- featured image across the top -->
+			<div class="featured-image">
+					<!-- check if the post has a Post Thumbnail assigned to it. -->
+					<?php if ( has_post_thumbnail() ) : ?>
+						<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
+							<?php  the_post_thumbnail( 'post-medium', array( 'class' => 'img-fluid' ) );?>
+						</a>
+					<?php endif; ?>
+			</div>
+			<div class="page-header title">
+				<?php the_title(); ?>
 			</div>
 			<div class="content">
 				<?php the_content() ?>

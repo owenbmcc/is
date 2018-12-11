@@ -200,6 +200,24 @@ add_theme_support( 'custom-header', $args );
 
 
 /* slideshow url */
+function add_query_vars_filter( $vars ) {
+  $vars[] = "slideshow";
+  return $vars;
+}
+add_filter( 'query_vars', 'add_query_vars_filter' );
 
+function slideshow_template( $template ) {
+	if ( get_query_var( 'slideshow' ) ) {
+		$new_template = locate_template( 'custom-slideshow.php' );
+		if ( !empty( $new_template ) ) {
+			return $new_template;
+		} else {
+			return $template;
+		}
+	} else {
+		return $template;
+	}
+}
+add_filter( 'template_include', 'slideshow_template' );
 
 ?>

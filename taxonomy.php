@@ -3,13 +3,11 @@
 <div class="header">
 	<?php $taxonomy = get_queried_object(); ?>
 	<div id="post-<?php the_ID(); ?>" <?php post_class(); ?> >
-		<div class="row">
-			<div class="title">
-				<?php echo $taxonomy->name; ?>
-			</div>
-			<div class="content">
-				<p><?php echo $taxonomy->description; ?></p>
-			</div>
+		<div class="title page-header">
+			<?php echo $taxonomy->name; ?>
+		</div>
+		<div class="content">
+			<p><?php echo $taxonomy->description; ?></p>
 		</div>
 	</div>
 </div>

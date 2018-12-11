@@ -1,5 +1,4 @@
 <?php /* Template Name: Slideshow Template */ ?>
-<!-- slideshow template -->
 <?php get_header(); ?>
 
 <button id="start">
@@ -13,12 +12,12 @@
 <div id="features">
 	<?php 
 
-		global $wp;
-		// echo serialize( $wp );
-		//$category = preg_split("?", $wp->request); 
-		//echo serialize( $category );
+		$featured = $wp_query;
 
-		$featured = new WP_Query( array( 'category_name' => 'featured' ) );
+		if ( !get_query_var( 'slideshow' ) ) {
+			$featured = new WP_Query( array( 'category_name' => 'featured' ) );
+		}
+
 		if ( have_posts() ) : while ( $featured->have_posts() ) : $featured->the_post(); 
 			$post_id = get_the_ID();
 	?>
@@ -86,12 +85,12 @@
 				features[count].children[1].children[0].addEventListener('ended', () => {
 					nextFeature();
 				});
+			} else {
+				setTimeout(nextFeature, 5000);
 			}
 		});
 
 		 // setInterval(nextFeature, 5000);
 	</script>
 </div>
-
-</html>
-</body>
+<!-- slideshow template -->

@@ -1,5 +1,9 @@
 <?php get_header(); ?>
 
+<?php 
+	// echo get_query_var( 'slideshow' );
+?>
+
 <?php $taxonomy = get_queried_object(); ?>
 <div class="title gallery-header">
 	<?php echo $taxonomy->name; ?> Gallery
