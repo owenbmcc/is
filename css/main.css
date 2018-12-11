@@ -28,6 +28,9 @@ a {
   border-left: none;
   padding-left: 2.5em; }
 
+#course-menu .menu-item a {
+  font-size: 0.75em; }
+
 #logo {
   position: absolute;
   cursor: pointer; }
@@ -176,6 +179,7 @@ a {
   border-bottom: 2px solid #ffb482; }
 .container .projects-header, .post .projects-header, .archive .projects-header {
   text-align: center;
+  font-family: "Josefin Sans", serif;
   background: #b2d4ff;
   border-top: 2px solid #ffb482;
   line-height: 2; }
@@ -202,7 +206,8 @@ a {
       .container .projects-grid .project .info .title, .post .projects-grid .project .info .title, .archive .projects-grid .project .info .title {
         border-bottom: none; }
       .container .projects-grid .project .info a, .post .projects-grid .project .info a, .archive .projects-grid .project .info a {
-        color: white; }
+        color: white;
+        /*text-shadow: 1px 1px 0 $bmcc-orange;*/ }
     .container .projects-grid .project .thumbnail, .post .projects-grid .project .thumbnail, .archive .projects-grid .project .thumbnail {
       /*position: absolute;*/ }
       .container .projects-grid .project .thumbnail img, .post .projects-grid .project .thumbnail img, .archive .projects-grid .project .thumbnail img {
