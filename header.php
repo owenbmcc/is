@@ -21,10 +21,12 @@
 
 	<div id="header">
 		<div id="logo">
-			<?php
-				$url =  get_template_directory_uri() . '/img/mea.svg';
-				echo file_get_contents( $url ); 
-			?>
+			<?php if( ini_get('allow_url_fopen') ): 
+					$url =  get_template_directory_uri() . '/img/mea.svg';
+					echo file_get_contents( $url ); 
+				else : ?>
+				<img src="<?php echo get_template_directory_uri() . '/img/mea.png' ?>">
+			<?php endif; ?>
 		</div>
 		
 		<div id="main-menu" class="menu <?php echo is_front_page() ? '':'open'; ?>">

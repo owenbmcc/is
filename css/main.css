@@ -31,12 +31,12 @@ a {
 #logo {
   position: absolute;
   cursor: pointer; }
-  #logo svg {
+  #logo svg, #logo img {
     width: 5em;
     height: 5em; }
-    #logo svg * {
+    #logo svg *, #logo img * {
       transition: fill 300ms; }
-    #logo svg:hover * {
+    #logo svg:hover *, #logo img:hover * {
       fill: #ffb482; }
 
 .menu {
