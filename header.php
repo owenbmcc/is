@@ -66,12 +66,9 @@
 		const logo = document.getElementById('logo');
 		const major = document.getElementById('major');
 		const course = document.getElementById('course');
-		const discipline = document.getElementById('discipline');
 		const mainMenu = document.getElementById('main-menu');
 		const majorMenu = document.getElementById('major-menu');
 		const courseMenu = document.getElementById('course-menu');
-		const disciplineMenu = document.getElementById('discipline-menu');
-
 
 		logo.addEventListener('click', ev => {
 			if (mainMenu.classList.contains('open')) {
@@ -101,15 +98,4 @@
 			else
 				courseMenu.classList.add('open');
 		});
-
-		discipline.addEventListener('click', ev => {
-			courseMenu.classList.remove('open');
-			majorMenu.classList.remove('open');
-			if (disciplineMenu.classList.contains('open'))
-				disciplineMenu.classList.remove('open');
-			else
-				disciplineMenu.classList.add('open');
-		});
-
-		
 	</script>
