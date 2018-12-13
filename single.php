@@ -1,9 +1,7 @@
 <?php get_header(); ?>
 
 <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-	
-	<div id="post-<?php the_ID(); ?>" class="post" >
-		
+	<div class="post" >
 		<div class="post-header">
 			<?php
 				/* embedded videos generate enclosure custom field*/
@@ -20,7 +18,7 @@
 			<?php  } else { ?>
 				<div class="featured-image">
 					<?php if ( has_post_thumbnail() ) : ?>
-						<?php the_post_thumbnail( 'post-featured', array( 'class' => 'img-fluid' ) );?>
+						<?php the_post_thumbnail( 'front-page', array( 'class' => 'img-fluid' ) );?>
 					<?php endif; ?>
 				</div>
 				<div class="title">
@@ -29,7 +27,7 @@
 			<?php } ?>
 		</div>
 
-		<div class="content single">
+		<div class="content">
 
 			<div class="info">
 				<div class="student">
@@ -42,6 +40,7 @@
 				
 				<div class="major">
 					<div class="label">Major</div>
+
 					<div class="value">
 						<?php echo get_the_term_list( $post->ID, 'major'); ?>
 					</div>
@@ -53,15 +52,18 @@
 						<?php echo get_the_term_list( $post->ID, 'course'); ?>
 					</div>
 				</div>
-
-				<!-- <div class="course">
-					<div class="label">Professor</div>
-					<div class="value">
-						<?php echo get_the_term_list( $post->ID, 'professors'); ?>
-					</div>
-				</div> -->
-				<!-- no professors on original site -->
 			</div>
+
+			<script>
+				const labels = document.getElementsByClassName('label')
+				Array.from(labels).forEach(label => {
+					const t = label.textContent;
+					const html = t.split('').map( letter =>  { 
+						return `<span class="letter">${letter}</span>`;
+					}).join('');
+					label.innerHTML = html;
+				});		
+			</script>
 
 			
 			<!-- if there's a main video, display content without first video -->

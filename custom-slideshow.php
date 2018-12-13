@@ -5,10 +5,6 @@
 	Start Slideshow
 </button>
 
-<script>
-	document.getElementById('main-menu').classList.remove('open');
-</script>
-
 <div id="features">
 	<?php 
 

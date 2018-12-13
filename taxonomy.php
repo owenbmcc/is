@@ -1,14 +1,12 @@
 <?php get_header(); ?>
 
-<div class="header">
+<div class="container">
 	<?php $taxonomy = get_queried_object(); ?>
-	<div id="post-<?php the_ID(); ?>" <?php post_class(); ?> >
-		<div class="title page-header">
-			<?php echo $taxonomy->name; ?>
-		</div>
-		<div class="content">
-			<p><?php echo $taxonomy->description; ?></p>
-		</div>
+	<div class="title page-header">
+		<?php echo $taxonomy->name; ?>
+	</div>
+	<div class="content">
+		<p><?php echo $taxonomy->description; ?></p>
 	</div>
 </div>
 
@@ -18,7 +16,7 @@
 
 <div class="projects-grid">
 	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-		<div id="post-<?php the_ID(); ?>" class="project">
+		<div  class="project">
 			<div class="info">
 				<div class="title"><a href="<?php the_permalink(); ?>">
 					<?php the_title(); ?></a>

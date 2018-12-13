@@ -44,7 +44,7 @@
 			}
 			features[count].style.opacity = 1;
 		}
-		 setInterval(nextFeature, 5000);
+		setInterval(nextFeature, 5000);
 	</script>
 
 

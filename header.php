@@ -11,12 +11,16 @@
 	<link rel="icon" href="<?php echo get_template_directory_uri(); ?>/img/favicon.ico ?>">
 	<title><?php get_bloginfo( 'name'); ?></title>
 
+	<script type="text/javascript">
+		var homeUrl = '<?= get_home_url(); ?>';
+	</script>
+
 	<!-- wp head -->
 	<?php wp_head(); ?>
 	<!-- end wp head -->
 </head>
 
-<body <?php body_class(); ?>>
+<body <?php body_class( get_query_var( 'slideshow' ) ? 'slideshow' : '' ); ?>>
 	
 
 	<div id="header">
@@ -29,70 +33,77 @@
 			<?php endif; ?>
 		</div>
 		
-		<div id="main-menu" class="menu <?php echo is_front_page() ? '':'open'; ?>">
-			<div class="menu-item">
-				<a href="<?php echo get_home_url(); ?>">Home</a>
+		<?php if (!get_query_var( 'slideshow' )): ?>
+			<div id="main-menu" class="menu <?php echo is_front_page() ? '':'open'; ?>">
+				<div class="menu-item">
+					<a href="<?php echo get_home_url(); ?>">Home</a>
+				</div>
+				<div class="menu-item">
+					<a href="<?php echo get_home_url(); ?>/about/">About</a>
+				</div>
+				<div id="major" class="menu-item">Majors</div>
+				<div id="course" class="menu-item">Courses</div>
 			</div>
-			<div class="menu-item">
-				<a href="<?php echo get_home_url(); ?>/about/">About</a>
-			</div>
-			<div id="major" class="menu-item">Majors</div>
-			<div id="course" class="menu-item">Courses</div>
-			
-		</div>
 
-		<?php
-			$menus = array( 'major' , 'course' );
-			foreach ( $menus as $menu ) {
-				$taxonomy = get_taxonomy( $menu ); 
-				if ($taxonomy) {
-					$terms = get_terms(  $taxonomy->name );
-					echo '<div id="' . $menu . '-menu" class="menu">';
-					foreach ( $terms as $term) {
-						echo '<div class="menu-item">';
-						echo '<a href="' . get_term_link( $term ) . '">' . $term->name . '</a>' ;
+			<?php
+				$menus = array( 'major' , 'course' );
+				foreach ( $menus as $menu ) {
+					$taxonomy = get_taxonomy( $menu ); 
+					if ($taxonomy) {
+						$terms = get_terms(  $taxonomy->name );
+						echo '<div id="' . $menu . '-menu" class="menu">';
+						foreach ( $terms as $term) {
+							echo '<div class="menu-item">';
+							echo '<a href="' . get_term_link( $term ) . '">' . $term->name . '</a>' ;
+							echo '</div>';
+						}
 						echo '</div>';
 					}
-					echo '</div>';
 				}
-			}
-		?>
+			?>
+			<!-- menu/sub menu script -->
+			<script>
+				const logo = document.getElementById('logo');
+				const major = document.getElementById('major');
+				const course = document.getElementById('course');
+				const mainMenu = document.getElementById('main-menu');
+				const majorMenu = document.getElementById('major-menu');
+				const courseMenu = document.getElementById('course-menu');
+
+				logo.addEventListener('click', ev => {
+
+					if ( document.body.classList.contains('home') ) {
+						if (mainMenu.classList.contains('open')) {
+							mainMenu.classList.remove('open');
+							courseMenu.classList.remove('open');
+							majorMenu.classList.remove('open');
+						}
+						else
+							mainMenu.classList.add('open');
+					} else {
+						location.href = homeUrl;
+					}
+				});
+
+				major.addEventListener('click', ev => {
+					courseMenu.classList.remove('open');
+					if (majorMenu.classList.contains('open'))
+						majorMenu.classList.remove('open');
+					else
+						majorMenu.classList.add('open');
+				});
+
+				course.addEventListener('click', ev => {
+					majorMenu.classList.remove('open');
+					if (courseMenu.classList.contains('open'))
+						courseMenu.classList.remove('open');
+					else
+						courseMenu.classList.add('open');
+				});
+			</script>
+
+		<?php endif; ?>
 
 	</div>
 
-	<!-- menu/sub menu script -->
-	<script>
-
-		const logo = document.getElementById('logo');
-		const major = document.getElementById('major');
-		const course = document.getElementById('course');
-		const mainMenu = document.getElementById('main-menu');
-		const majorMenu = document.getElementById('major-menu');
-		const courseMenu = document.getElementById('course-menu');
-
-		logo.addEventListener('click', ev => {
-			if (mainMenu.classList.contains('open')) {
-				mainMenu.classList.remove('open');
-				courseMenu.classList.remove('open');
-				majorMenu.classList.remove('open');
-			}
-			else
-				mainMenu.classList.add('open');
-		});
-
-		major.addEventListener('click', ev => {
-			courseMenu.classList.remove('open');
-			if (majorMenu.classList.contains('open'))
-				majorMenu.classList.remove('open');
-			else
-				majorMenu.classList.add('open');
-		});
-
-		course.addEventListener('click', ev => {
-			majorMenu.classList.remove('open');
-			if (courseMenu.classList.contains('open'))
-				courseMenu.classList.remove('open');
-			else
-				courseMenu.classList.add('open');
-		});
-	</script>
+	

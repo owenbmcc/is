@@ -21,24 +21,19 @@
 		.info {
 			font-family: $title;
 			
-			/*background-color: $bmcc-blue;*/
-
-			& a {
-				color: white; /* $text-color; */
-			}
-			/*border: 2px solid $bmcc-orange;*/
+			background-color: $bmcc-blue;
+			border: 2px solid $text-color;
 
 			position: absolute;
 			bottom: 4em;
 			right: 4em;
 
-			padding: 0.5em 1em;
+			padding: 0.5em 2em;
+
+			text-align: right;
 
 			z-index: 1;
 			transition: background-color 300ms;
- 			&:hover { 
-				/*background-color: $bmcc-blue;*/
- 			}
 
 
 			.title {
@@ -53,6 +48,7 @@
 				font-weight: 300;
 			}
 			a { 
+				color: $text-color; /* $text-color; */
 				background: linear-gradient(to bottom, transparent 40%, transparent 40%);
 				transition: background 300ms; 
 			}
