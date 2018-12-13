@@ -75,7 +75,6 @@
 				mainMenu.classList.remove('open');
 				courseMenu.classList.remove('open');
 				majorMenu.classList.remove('open');
-				disciplineMenu.classList.remove('open');
 			}
 			else
 				mainMenu.classList.add('open');
@@ -83,7 +82,6 @@
 
 		major.addEventListener('click', ev => {
 			courseMenu.classList.remove('open');
-			disciplineMenu.classList.remove('open');
 			if (majorMenu.classList.contains('open'))
 				majorMenu.classList.remove('open');
 			else
@@ -92,7 +90,6 @@
 
 		course.addEventListener('click', ev => {
 			majorMenu.classList.remove('open');
-			disciplineMenu.classList.remove('open');
 			if (courseMenu.classList.contains('open'))
 				courseMenu.classList.remove('open');
 			else
