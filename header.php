@@ -38,7 +38,7 @@
 			</div>
 			<div id="major" class="menu-item">Majors</div>
 			<div id="course" class="menu-item">Courses</div>
-			<div id="discipline" class="menu-item">Disciplines</div>
+			
 		</div>
 
 		<?php
@@ -58,20 +58,6 @@
 			}
 		?>
 
-		<div id="discipline-menu" class="menu">
-			<div class="menu-item">
-				<a href="<?php echo get_home_url(); ?>/category/animation/">Animation</a>
-			</div>
-			<div class="menu-item">
-				<a href="<?php echo get_home_url(); ?>/category/film-video/">Film & Video</a>
-			</div>
-			<div class="menu-item">
-				<a href="<?php echo get_home_url(); ?>/category/graphic-design/">Graphic Design</a>
-			</div>
-			<div class="menu-item">
-				<a href="<?php echo get_home_url(); ?>/category/interactive/">Interactive</a>
-			</div>
-		</div>
 	</div>
 
 	<!-- menu/sub menu script -->
