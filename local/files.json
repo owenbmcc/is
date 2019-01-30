@@ -1,0 +1,21 @@
+{
+	"files": [
+
+		{
+			"title": "rattle",
+			"students": ["Madeleine De Leon"],
+			"major": "Animation and Motion Graphics",
+			"course": "ANI 401 : Introduction to 3D Animation",
+			"type": "video",
+			"src": "3dmadeleineDeLeon.mp4"
+		},
+		{
+			"title": "Valor Sea Spirits Branding",
+			"students": ["Stacy Vega"],
+			"major": "Multimedia Art and Design",
+			"course": "MMA 235: Visual Communication and Design",
+			"type": "image",
+			"src": "businessCardMockup_front-1024x685.jpg"
+		}
+	]
+}
