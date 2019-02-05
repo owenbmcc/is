@@ -1,3 +1,6 @@
+<!-- 
+    not sure if this is used?
+ -->
 <div class="thumbnail-link">
     <p>
        <!-- check if the post has a Post Thumbnail assigned to it. -->

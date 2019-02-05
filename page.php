@@ -1,3 +1,8 @@
+<!-- 
+	template for pages
+	includes about page, non public facing tutorials etc.
+ -->
+
 <?php get_header(); ?>
 
 <div class="container">

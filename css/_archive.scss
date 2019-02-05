@@ -1,0 +1,65 @@
+/* template for any page with grid of projects/collection */
+
+.archive {
+
+	.projects-header {
+		text-align: center;
+		font-family: $text;
+		background: $bmcc-blue;
+		border-top: 2px solid $bmcc-orange;
+		border-bottom: 2px solid $text-color;
+		line-height: 2;
+	}
+	
+	/* student work or student name */
+	.gallery-header {
+		text-align: center;
+		/*background: $bmcc-blue;*/
+		line-height: 2;
+		padding-top: 1em;
+		font-family: $text;
+		border-bottom: 2px solid $bmcc-orange;
+	}
+
+	.projects-grid {
+		
+		display: flex;
+		flex-wrap: wrap;
+		
+		.project {
+			flex: 1;
+			min-width: 50%;
+			position: relative;
+			/*background-color: $orange;*/
+
+			&:hover .info { opacity: 1; }
+
+			.info {
+				opacity: 0;
+				font-family: $title;
+				.title { border-bottom: none };
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				right: 0;
+				left: 0;
+				background: rgba(0,0,0,0.75);
+   				padding: 2em;
+
+   				
+				& a { color: white; }
+			}
+		
+			.thumbnail {
+				/*position: absolute;*/
+				img {
+					width: 100%;
+					height: auto;
+					display: block;
+				}
+			}
+			
+		}
+
+	}
+}

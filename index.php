@@ -1,3 +1,7 @@
+<!-- 
+	pretty sure this isn't used, should consider removing
+ -->
+
 <?php get_header(); ?>
 <div class="container">
 	<div class="row">

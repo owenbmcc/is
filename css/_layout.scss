@@ -1,0 +1,32 @@
+/* some common styles between page, grid collections and single projects */
+
+.container {
+	/*padding: 2.5em 5em;*/
+	margin-top: 2.5em;
+}
+
+.header { 
+	padding: 2.5em 5em;
+	margin-top: 2.5em;
+}
+
+.page, .post, .archive {
+	.title {
+		font-size: 3em;
+		color: $text-color;
+	}
+	.page-header {
+		font-family: $text;
+		border-bottom: 2px solid $bmcc-orange;
+		padding: 0 5rem;
+		margin-top: 5rem;
+	}
+	.content {
+		font-size: 1.4em;
+		font-family: $body;
+		line-height: 1.4;
+		color: $text-color;
+		padding: 0 5rem;
+		margin-top: 2.5rem;
+	}
+}

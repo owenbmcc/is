@@ -1,3 +1,8 @@
+<!-- 
+	template for front page slideshow
+	does not play videos automatically like ?slideshow=true
+	that requires user interaction
+ -->
 <?php get_header(); ?>
 
 <div id="features">
@@ -6,7 +11,6 @@
 		$featured = new WP_Query( array( 'category_name' => 'featured' ) );
 		if ( have_posts() ) : while ( $featured->have_posts() ) : $featured->the_post(); 
 			$post_id = get_the_ID();
-
 	?>
 		<div class="feature">
 			<div class="info">
@@ -44,8 +48,6 @@
 			}
 			features[count].style.opacity = 1;
 		}
-		setInterval(nextFeature, 5000);
+		setInterval(nextFeature, 8000);
 	</script>
-
-
 </div>

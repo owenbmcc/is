@@ -9,7 +9,7 @@
 	<meta name="description" content="">
 	<meta name="author" content="">
 	<link rel="icon" href="<?php echo get_template_directory_uri(); ?>/img/favicon.ico ?>">
-	<title><?php get_bloginfo( 'name'); ?></title>
+	<title><?php echo get_bloginfo( 'name'); ?></title>
 
 	<script type="text/javascript">
 		var homeUrl = '<?= get_home_url(); ?>';
@@ -20,9 +20,7 @@
 	<!-- end wp head -->
 </head>
 
-<body <?php body_class( get_query_var( 'slideshow' ) ? 'slideshow' : '' ); ?>>
-	
-
+<body id="<?php echo  $post->post_name; ?>" <?php body_class( get_query_var( 'slideshow' ) ? 'slideshow' : '' ); ?>>
 	<div id="header">
 		<div id="logo">
 			<?php if( ini_get('allow_url_fopen') ): 
@@ -35,10 +33,10 @@
 		
 		<?php if (!get_query_var( 'slideshow' )): ?>
 			<div id="main-menu" class="menu <?php echo is_front_page() ? '':'open'; ?>">
-				<div class="menu-item">
+				<div class="menu-item" id="home-link">
 					<a href="<?php echo get_home_url(); ?>">Home</a>
 				</div>
-				<div class="menu-item">
+				<div class="menu-item" id="about-link">
 					<a href="<?php echo get_home_url(); ?>/about/">About</a>
 				</div>
 				<div id="major" class="menu-item">Majors</div>

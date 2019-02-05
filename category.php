@@ -1,14 +1,14 @@
+<!-- 
+	currently no links to page using category,
+	everything is taxonomy
+	ignoring this for now
+ -->
 <?php get_header(); ?>
-
-<?php 
-	// echo get_query_var( 'slideshow' );
-?>
 
 <?php $taxonomy = get_queried_object(); ?>
 <div class="title gallery-header">
 	<?php echo $taxonomy->name; ?> Gallery
 </div>
-
 
 <div class="projects-grid">
 	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>

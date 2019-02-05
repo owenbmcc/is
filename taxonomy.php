@@ -15,7 +15,9 @@
 </div>
 
 <div class="projects-grid">
+
 	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+		<?php if (!has_tag( 'private' )) : ?>
 		<div  class="project">
 			<div class="info">
 				<div class="title"><a href="<?php the_permalink(); ?>">
@@ -40,6 +42,7 @@
 				</a>
 			</div>
 		</div>
+		<?php endif; ?>
 	<?php endwhile; ?>
 </div>
 	<?php else:  //there are no posts?>

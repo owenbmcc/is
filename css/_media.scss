@@ -1,0 +1,35 @@
+/* default for grid is 2 projects per row */
+/* 3 projects per row */
+@media screen and (min-width: 1600px) {
+	.archive .projects-grid {
+		.project {
+			min-width: calc(100%/3);
+			max-width: calc(100%/3);
+		}
+	}
+}
+
+/* 1 project per row */
+@media screen and (max-width: 800px) {
+	.archive .projects-grid {
+		.project {
+			min-width: 100%
+		}
+	}
+}
+
+/* menu takes up two lines */
+@media screen and (max-width: 700px) {
+	.container {
+		margin-top: 7em;
+	}
+}
+
+
+
+/* mobile */
+@media screen and (max-width: 375px) {
+	#home-link {
+		display: none;
+	}
+}
