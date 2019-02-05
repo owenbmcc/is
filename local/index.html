@@ -85,6 +85,7 @@
 
 			document.getElementById('start').addEventListener('click', ev => {
 				ev.currentTarget.style.display = 'none';
+				// fullscreen();
 				if (features[count].children[1].classList.contains('video')) {
 					features[count].children[1].children[0].play();
 					features[count].children[1].children[0].addEventListener('ended', () => {
@@ -100,6 +101,18 @@
 			.then(response => { return response.json(); })
 			.then(slides)
 			.catch(error => { console.log('error', error); });
+
+		function fullscreen() {
+			if (renderer.domElement.requestFullscreen) {
+				renderer.domElement.requestFullscreen();
+			} else if (renderer.domElement.msRequestFullscreen) {
+				renderer.domElement.msRequestFullscreen();
+			} else if (renderer.domElement.mozRequestFullScreen) {
+				renderer.domElement.mozRequestFullScreen();
+			} else if (renderer.domElement.webkitRequestFullscreen) {
+				renderer.domElement.webkitRequestFullscreen();
+			}
+		}
 	</script>
 </body>
 </html>
