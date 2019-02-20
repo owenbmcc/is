@@ -9,13 +9,14 @@
 	.menu-item {
 		line-height: 2.5em;
 		height: 2.5em;
-
 	}
 
 	.menu-item:first-child {
 		border-left: none;
 		padding-left: 2.5em;
 	}
+
+	/*display: flex;*/
 }
 
 #course-menu {
@@ -65,9 +66,8 @@
   	justify-content: center;
 
 	display: none;
-	&.open {
-		display: flex;
-	}
+	
+	&.open { display: flex; }
 	
 	.menu-item {
 
@@ -85,7 +85,6 @@
 
 		/*line-height: 0;*/
 		line-height: 2;
-
 
  		&:hover { 
 			background-color: $bmcc-orange;

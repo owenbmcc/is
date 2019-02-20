@@ -13,6 +13,8 @@
 
 	<script type="text/javascript">
 		var homeUrl = '<?= get_home_url(); ?>';
+		var isMobile = '<?= wp_is_mobile(); ?>';
+		var isFrontPage = '<?= is_front_page(); ?>';
 	</script>
 
 	<!-- wp head -->
@@ -32,7 +34,7 @@
 		</div>
 		
 		<?php if (!get_query_var( 'slideshow' )): ?>
-			<div id="main-menu" class="menu <?php echo is_front_page() ? '':'open'; ?>">
+			<div id="main-menu" class="menu <?php echo is_front_page() || wp_is_mobile() ? '':'open'; ?>">
 				<div class="menu-item" id="home-link">
 					<a href="<?php echo get_home_url(); ?>">Home</a>
 				</div>
@@ -49,7 +51,7 @@
 					$taxonomy = get_taxonomy( $menu ); 
 					if ($taxonomy) {
 						$terms = get_terms(  $taxonomy->name );
-						echo '<div id="' . $menu . '-menu" class="menu">';
+						echo '<div id="' . $menu . '-menu" class="sub menu">';
 						foreach ( $terms as $term) {
 							echo '<div class="menu-item">';
 							echo '<a href="' . get_term_link( $term ) . '">' . $term->name . '</a>' ;
@@ -70,7 +72,7 @@
 
 				logo.addEventListener('click', ev => {
 
-					if ( document.body.classList.contains('home') ) {
+					if (isFrontPage || isMobile) {
 						if (mainMenu.classList.contains('open')) {
 							mainMenu.classList.remove('open');
 							courseMenu.classList.remove('open');

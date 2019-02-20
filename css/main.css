@@ -21,12 +21,14 @@ a {
   z-index: 99;
   height: 5em; }
 
-#main-menu .menu-item {
-  line-height: 2.5em;
-  height: 2.5em; }
-#main-menu .menu-item:first-child {
-  border-left: none;
-  padding-left: 2.5em; }
+#main-menu {
+  /*display: flex;*/ }
+  #main-menu .menu-item {
+    line-height: 2.5em;
+    height: 2.5em; }
+  #main-menu .menu-item:first-child {
+    border-left: none;
+    padding-left: 2.5em; }
 
 #course-menu .menu-item a {
   font-size: 0.75em; }
@@ -363,12 +365,38 @@ body#hall-monitor #header {
   .archive .projects-grid .project {
     min-width: 100%; } }
 /* menu takes up two lines */
-@media screen and (max-width: 700px) {
+@media screen and (min-width: 415px) and (max-width: 700px) {
   .container {
     margin-top: 7em; } }
 /* mobile */
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 414px) {
   #home-link {
-    display: none; } }
+    display: none; }
+
+  /*#main-menu.menu.open { display: none; }*/
+  .menu {
+    padding: 0; }
+
+  #main-menu .menu-item {
+    flex: 100%;
+    border-left: none; }
+
+  .sub.menu .menu-item {
+    flex: 1;
+    border-left: none;
+    line-height: 1.5;
+    display: flex;
+    justify-content: center; }
+
+  #major-menu {
+    margin-top: -4em;
+    position: relative; }
+
+  .page .content {
+    padding: 0 1rem; }
+
+  #footer .two-column {
+    grid-template-columns: 100%;
+    grid-gap: 0; } }
 
 /*# sourceMappingURL=main.css.map */
