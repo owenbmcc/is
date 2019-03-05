@@ -382,7 +382,7 @@ body#hall-monitor #header {
     border-left: none; }
 
   .sub.menu .menu-item {
-    flex: 1;
+    flex: 100%;
     border-left: none;
     line-height: 1.5;
     display: flex;
@@ -397,6 +397,65 @@ body#hall-monitor #header {
 
   #footer .two-column {
     grid-template-columns: 100%;
-    grid-gap: 0; } }
+    grid-gap: 0; }
+
+  .container {
+    margin-top: -5em; }
+
+  .archive .page-header, .page .page-header {
+    margin-top: 1rem;
+    padding: 0 1rem;
+    font-size: 2em;
+    padding-left: 2.5em;
+    text-align: right; }
+  .archive .content, .page .content {
+    padding: 0 1rem;
+    margin-top: 0; }
+  .archive .projects-grid .project .info, .page .projects-grid .project .info {
+    opacity: 1;
+    /*background: none;*/
+    background: rgba(178, 212, 255, 0.95);
+    padding: 0;
+    padding-left: 1em;
+    bottom: 2em;
+    top: auto;
+    font-size: 0.75em; }
+
+  .single .post {
+    margin-top: -5em; }
+    .single .post .post-header .title {
+      font-size: 3em;
+      padding-left: 2.5em;
+      left: 0;
+      top: 1em;
+      bottom: auto; }
+  .single .info {
+    /*flex-direction: row-reverse;*/
+    font-size: 1em; }
+  .single .student, .single .major, .single .course {
+    flex: 100%; }
+    .single .student .label, .single .major .label, .single .course .label {
+      font-size: 5em; }
+  .single .major .value, .single .course .value {
+    font-size: 0.75em; }
+  .single .main-content {
+    padding: 0 1rem;
+    font-size: 1em; }
+  .single .post-footer.menu .menu-item {
+    font-size: 1.5em;
+    border-left: none;
+    flex: 100%;
+    line-height: 1.25;
+    padding: 0.25em 0;
+    height: auto; }
+
+  #features .feature .info {
+    right: 0;
+    left: 0;
+    border-right: none;
+    border-left: none; }
+  #features .feature .image {
+    display: block;
+    top: 6em; } }
 
 /*# sourceMappingURL=main.css.map */
