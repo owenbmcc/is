@@ -29,6 +29,7 @@ a {
 		text-decoration: underline;
 	}
 }
+p { max-width: 1024px; }
 
 @import 'menu';
 @import 'front';

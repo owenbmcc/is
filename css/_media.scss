@@ -28,7 +28,7 @@
 
 
 /* mobile */
-@media screen and (max-width: 414px) {
+@media (min-width: 320px) and (max-width: 480px){
 	#home-link { display: none; }
 	/*#main-menu.menu.open { display: none; }*/
 	.menu { padding: 0; }
@@ -147,5 +147,42 @@
 			top: 6em;
 		}
 	}
+}
 
+/* tablet */
+
+@media (min-width: 768px) and (max-width: 1024px) {
+	.mobile {
+		#start {
+			color: white;
+			background: blue;
+		}
+		.page .page-header {
+			margin-top: 0;
+		}
+		#content p, .content p {
+			font-size: 26px;
+		}
+		.projects-grid .project .info {
+			opacity: 1;
+			bottom: 2em;
+			top: auto;
+			background: rgba($bmcc-blue, 0.75);
+		}
+		.post-footer.menu {
+			.menu-item {
+				border-left: none;
+				flex: 100%;
+				line-height: 1.25;
+				padding: 0.25em 0;
+				height: auto;
+			}
+		}
+		&.single .main-content {
+			padding: 0;
+			p {
+				padding: 2.5rem 5rem;
+			}
+		}
+	}
 }

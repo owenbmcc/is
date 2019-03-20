@@ -15,6 +15,7 @@
 		var homeUrl = '<?= get_home_url(); ?>';
 		var isMobile = '<?= wp_is_mobile(); ?>';
 		var isFrontPage = '<?= is_front_page(); ?>';
+		var isSlideshow = '<?= is_page('slideshow'); ?>';
 	</script>
 
 	<!-- wp head -->
@@ -34,7 +35,7 @@
 		</div>
 		
 		<?php if (!get_query_var( 'slideshow' )): ?>
-			<div id="main-menu" class="menu <?php echo is_front_page() || wp_is_mobile() ? '':'open'; ?>">
+			<div id="main-menu" class="menu <?php echo is_page('slideshow') || is_front_page() || wp_is_mobile() ? '':'open'; ?>">
 				<div class="menu-item" id="home-link">
 					<a href="<?php echo get_home_url(); ?>">Home</a>
 				</div>
@@ -70,8 +71,14 @@
 				const majorMenu = document.getElementById('major-menu');
 				const courseMenu = document.getElementById('course-menu');
 
-				logo.addEventListener('click', ev => {
+				if (isMobile) document.body.classList.add('mobile');
 
+				if (window.innerWidth >= 768 && !isFrontPage && !isSlideshow) {
+					mainMenu.classList.add('open');
+					isMobile = false; /* tablets */
+				}
+
+				logo.addEventListener('click', ev => {
 					if (isFrontPage || isMobile) {
 						if (mainMenu.classList.contains('open')) {
 							mainMenu.classList.remove('open');

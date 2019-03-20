@@ -9,6 +9,9 @@
 <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 	<div class="post" >
 		<div class="post-header">
+			<div class="title">
+ 				<?php the_title(); ?>
+			</div>
 			<!-- for video posts, show video as featured image, otherwise use featured image
 				does not include youtube or vimeo embeds (for now)  -->
 			<?php
@@ -30,9 +33,7 @@
 				</div>
 
 				<!-- title appears on top of video/image -->
-				<div class="title">
- 					<?php the_title(); ?>
-				</div>
+				
 			<?php } ?>
 		</div>
 		

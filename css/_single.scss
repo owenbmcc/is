@@ -8,22 +8,19 @@
 		position: relative;
 		
 		.title {
-			font-size: 4em;
 			color: white;
-			position: absolute;
-			bottom: 1em;
-			left: 1em;
-			border-bottom: none;
-			background: linear-gradient(to bottom, transparent 60%, $bmcc-blue 60%);
-
+			font-size: 4em;
+			background:  $bmcc-blue;
+			padding-left: 1rem;
+			line-height: 1.25;
+			padding-top: 0.25em;
 		}
 
 		.featured-image, .featured-video {
-			
-			background-color: lighten( $bmcc-orange, 10% );;
+			/*background-color: lighten( $bmcc-orange, 10% );;*/
 			text-align: center;
 			/*margin-top: 2.5em;*/
-			
+			padding: 1em;
 			img, video {
 				display: block;
 				width: auto;
@@ -44,6 +41,8 @@
 	.content {
 		margin-top: 0;
 		padding: 0;
+
+
 	}
 
 	.post-footer  {
@@ -66,7 +65,7 @@
 		
 		flex: 1;
 		line-height: 2;
-		padding: 0 1em;
+		padding: 0 1rem;
 		position: relative;
 		/*background-color: $bmcc-orange;*/
 		z-index: 0;
@@ -133,5 +132,7 @@
 			width: 100%;
 			margin: 1em auto;
 		}
+
+		.gallery { display: none; } /* temp fix until standards established */
 	}
 }
