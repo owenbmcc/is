@@ -19,6 +19,10 @@ a {
 p {
   max-width: 1024px; }
 
+strong {
+  color: #ff6600;
+  font-weight: normal; }
+
 #header {
   position: relative;
   z-index: 99;

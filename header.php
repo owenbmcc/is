@@ -15,7 +15,7 @@
 		var homeUrl = '<?= get_home_url(); ?>';
 		var isMobile = '<?= wp_is_mobile(); ?>';
 		var isFrontPage = '<?= is_front_page(); ?>';
-		var isSlideshow = '<?= is_page('slideshow'); ?>';
+		var isSlideshow = "<?= is_page('slideshow'); ?>";
 	</script>
 
 	<!-- wp head -->
@@ -26,7 +26,7 @@
 <body id="<?php echo  $post->post_name; ?>" <?php body_class( get_query_var( 'slideshow' ) ? 'slideshow' : '' ); ?>>
 	<div id="header">
 		<div id="logo">
-			<?php if( ini_get('allow_url_fopen') ): 
+			<?php if( ini_get( 'allow_url_fopen' ) ): 
 					$url =  get_template_directory_uri() . '/img/mea.svg';
 					echo file_get_contents( $url ); 
 				else : ?>

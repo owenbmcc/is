@@ -14,6 +14,7 @@ $orange: #ff6600;
 $bmcc-blue: #b2d4ff;
 $accent: #ffea6c;
 $text-color: #0052b9;
+$strong: #a1cbff;
 
 * { box-sizing:border-box; }
 
@@ -30,6 +31,10 @@ a {
 	}
 }
 p { max-width: 1024px; }
+strong { 
+	color: $orange; 
+	font-weight: normal;
+}
 
 @import 'menu';
 @import 'front';

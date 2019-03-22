@@ -39,6 +39,8 @@ function bare_bones_setup() {
     * ADD NAVIGATION MENU
     */
     register_nav_menu('main', 'Main Menu'); //register's the main menu
+
+
 }
 
 function style_setup() {
@@ -233,5 +235,14 @@ function my_password_form() {
 add_filter( 'the_password_form', 'my_password_form' );
 /* https://codex.wordpress.org/Using_Password_Protection 
  https://wordpress.stackexchange.com/questions/64607/password-protect-custom-page */
+
+ /* gallery defaults */
+function my_gallery_default_type_set_link( $settings ) {
+	$settings['galleryDefaults']['link'] = 'none';
+	$settings['galleryDefaults']['columns'] = '1';
+	$settings['galleryDefaults']['size'] = 'full-size';
+	return $settings;
+}
+add_filter( 'media_view_settings', 'my_gallery_default_type_set_link');
 
 ?>
