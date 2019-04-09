@@ -36,14 +36,27 @@
 		
 		<?php if (!get_query_var( 'slideshow' )): ?>
 			<div id="main-menu" class="menu <?php echo is_page('slideshow') || is_front_page() || wp_is_mobile() ? '':'open'; ?>">
-				<div class="menu-item" id="home-link">
+				<!-- <div class="menu-item" id="home-link">
 					<a href="<?php echo get_home_url(); ?>">Home</a>
-				</div>
+				</div> -->
 				<div class="menu-item" id="about-link">
 					<a href="<?php echo get_home_url(); ?>/about/">About</a>
 				</div>
+				<div class="menu-item" >
+					<a href="<?php echo get_home_url(); ?>/category/animation">Animation</a>
+				</div>
+				<div class="menu-item" >
+					<a href="<?php echo get_home_url(); ?>/category/film-video/">Film & Video</a>
+				</div>
+				<div class="menu-item" >
+					<a href="<?php echo get_home_url(); ?>/category/graphic-design/">Graphic Design</a>
+				</div>
+				<div class="menu-item" >
+					<a href="<?php echo get_home_url(); ?>/category/Interactive/">Interactive</a>
+				</div>
 				<div id="major" class="menu-item">Majors</div>
 				<div id="course" class="menu-item">Courses</div>
+				
 			</div>
 
 			<?php

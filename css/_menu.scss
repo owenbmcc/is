@@ -1,28 +1,24 @@
 #header {
 	position: relative;
 	z-index: 99;
-	height: 5em;
 }
 
 #main-menu {
 
 	.menu-item {
-		line-height: 2.5em;
-		height: 2.5em;
+		line-height: 3em;
+		height: 3em;
 	}
 
 	.menu-item:first-child {
 		border-left: none;
-		padding-left: 2.5em;
+		padding-left: 3em;
 	}
-
 	/*display: flex;*/
 }
 
 #course-menu {
-	.menu-item a {
-		font-size: 0.75em;
-	}
+	.menu-item a { font-size: 0.85em; }
 }
 
 
@@ -30,13 +26,10 @@
 	position: absolute;
 	cursor: pointer;
 	svg, img {
-		width: 5em;
-		height: 5em;
-
+		width:  4em;
+		height: 4em;
 		* { transition: fill 300ms; }
-		&:hover * {
-			fill: $bmcc-orange;
-		}
+		&:hover * { fill: $bmcc-orange; }
 	}
 }
 
@@ -45,17 +38,12 @@
 	&:hover * { fill: $text-color; }
 }
 
-
 .menu {
 
-	/*background: white;*/
 	background-color: $bmcc-blue;
 
-
 	color: $text-color;
-	& a {
-		color: $text-color;
-	}
+	& a { color: $text-color; }
 	
 	font-family: $text;
 	font-weight: 300;
@@ -70,15 +58,11 @@
 	&.open { display: flex; }
 	
 	.menu-item {
-
 		flex: 1 0 auto;
-
-		font-size: 2em;
-		
+		font-size: 1.3em;
 		text-align: center;
 		border-bottom: 2px solid $bmcc-orange;
 		border-left: 2px solid $bmcc-orange;
-	
 		padding: 0 1em;
 		cursor: pointer;
 		transition: background-color 300ms;
