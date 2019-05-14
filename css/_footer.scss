@@ -3,11 +3,30 @@
 	basic site info
 */
 
+/* flex sticky footer 
+	https://css-tricks.com/couple-takes-sticky-footer/
+*/
+html, body {
+	height: 100%;
+}
+
+body {
+	// display: flex;
+	flex-direction: column;
+}
+
+#content {
+	flex: 1 0 auto;
+}
+
 #footer {
+
+	flex-shrink: 0;
+
 	background: $bmcc-blue;
 	color: $text-color;
 	font-family: $text;
-	border-top: 2px solid $text-color;
+	// border-top: 2px solid $text-color;
 
 	.two-column {
 		display: grid;

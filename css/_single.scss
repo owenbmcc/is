@@ -41,13 +41,12 @@
 	.content {
 		margin-top: 0;
 		padding: 0;
-
-
 	}
 
-	.post-footer  {
+	.post-footer {
 		
 		display: flex;
+		border-bottom: 2px solid $text-color;
 
 		.menu-item {
 			border-bottom: none;

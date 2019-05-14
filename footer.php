@@ -1,6 +1,6 @@
-<!-- 
-	modified from template by chris stein
- -->
+</div> <!-- end #content -->
+
+<!--  modified from template by chris stein -->
 <div id="footer">
 	<div class="two-column">
 		<div class="col">

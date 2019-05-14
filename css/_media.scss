@@ -1,11 +1,18 @@
 /* default for grid is 2 projects per row */
 /* 3 projects per row */
-@media screen and (min-width: 1600px) {
+@media screen and (min-width: 1200px) {
 	.archive .projects-grid {
 		.project {
 			min-width: calc(100%/3);
-			max-width: calc(100%/3);
+			/*max-width: calc(100%/3);*/
 		}
+	}
+}
+
+/* fix menu */
+@media screen and (min-width: 760px) and (max-width: 980px) {
+	#course, #major {
+		flex-basis: 50%;
 	}
 }
 
@@ -32,6 +39,7 @@
 	#home-link { display: none; }
 	/*#main-menu.menu.open { display: none; }*/
 	.menu { padding: 0; }
+	#main-menu #about-link { padding-left: 1em; }
 	#main-menu .menu-item { 
 		flex: 100%; 
 		border-left: none;

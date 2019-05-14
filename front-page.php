@@ -12,7 +12,7 @@
 		if ( have_posts() ) : while ( $featured->have_posts() ) : $featured->the_post(); 
 			$post_id = get_the_ID();
 	?>
-		<div class="feature">
+		<div class="feature hidden">
 			<div class="info">
 				<div class="title">
 					<a href="<?php the_permalink(); ?>">
@@ -39,14 +39,15 @@
 		/* fade in/out features */
 		const features = document.getElementsByClassName('feature');
 		let count = 0;
+		features[count].classList.replace('hidden', 'show');
 		function nextFeature() {
-			features[count].style.opacity = 0;
+			features[count].classList.replace('show', 'hidden');
 			if (count < features.length - 1) {
 				count ++;
 			} else {
 				count = 0;
 			}
-			features[count].style.opacity = 1;
+			features[count].classList.replace('hidden', 'show');
 		}
 		setInterval(nextFeature, 8000);
 	</script>

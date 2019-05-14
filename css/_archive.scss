@@ -34,6 +34,7 @@
 			&:hover .info { opacity: 1; }
 			.info {
 				opacity: 0;
+				&.no-featured-image { opacity: 1; }
 				font-family: $title;
 				.title { border-bottom: none };
 				position: absolute;
@@ -50,6 +51,8 @@
 		
 			.thumbnail {
 				/*position: absolute;*/
+				width: 100%;
+				min-height: 240px;
 				img {
 					width: 100%;
 					height: auto;

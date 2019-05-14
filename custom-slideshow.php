@@ -149,7 +149,7 @@ if ( post_password_required( $post ) ) {
 			|| el.webkitRequestFullScreen
 			|| el.mozRequestFullScreen
 			|| el.msRequestFullscreen;
-		// rfs.call(el);  // full screen
+		rfs.call(el);  // full screen
 		playFeature();
 	}
 	document.getElementById('start').addEventListener('click', start);

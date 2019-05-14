@@ -24,7 +24,8 @@
 </head>
 
 <body id="<?php echo  $post->post_name; ?>" <?php body_class( get_query_var( 'slideshow' ) ? 'slideshow' : '' ); ?>>
-	<div id="header">
+	<div id="content">
+		<div id="header">
 		<div id="logo">
 			<?php if( ini_get( 'allow_url_fopen' ) ): 
 					$url =  get_template_directory_uri() . '/img/mea.svg';
@@ -123,7 +124,6 @@
 			</script>
 
 		<?php endif; ?>
-
-	</div>
+		</div>
 
 	
