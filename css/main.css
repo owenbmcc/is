@@ -34,7 +34,44 @@ strong {
   z-index: 99;
 }
 
+#logo {
+  position: absolute;
+  cursor: pointer;
+}
+#logo svg, #logo img {
+  width: 4em;
+  height: 4em;
+  position: relative;
+  z-index: 2;
+}
+#logo svg *, #logo img * {
+  transition: fill 300ms;
+}
+#logo svg:hover *, #logo img:hover * {
+  fill: #ffb482;
+}
+#logo span {
+  color: #ffb482;
+  font-size: 2em;
+  font-family: "Josefin Sans", serif;
+  height: 2.5em;
+  vertical-align: middle;
+  display: inline-block;
+  position: relative;
+  z-index: -1;
+  margin-left: 0.5em;
+}
+
+#home #logo svg * {
+  fill: #b2d4ff;
+}
+#home #logo svg:hover * {
+  fill: #0052b9;
+}
+
 #main-menu {
+  position: relative;
+  z-index: 1;
   /*display: flex;*/
 }
 #main-menu .menu-item {
@@ -48,28 +85,6 @@ strong {
 
 #course-menu .menu-item a {
   font-size: 0.85em;
-}
-
-#logo {
-  position: absolute;
-  cursor: pointer;
-}
-#logo svg, #logo img {
-  width: 4em;
-  height: 4em;
-}
-#logo svg *, #logo img * {
-  transition: fill 300ms;
-}
-#logo svg:hover *, #logo img:hover * {
-  fill: #ffb482;
-}
-
-#home #logo svg * {
-  fill: #b2d4ff;
-}
-#home #logo svg:hover * {
-  fill: #0052b9;
 }
 
 .menu {
@@ -289,29 +304,18 @@ body#hall-monitor #header {
   min-width: 50%;
   position: relative;
   overflow: hidden;
-}
-.archive .projects-grid .project:hover .info {
-  opacity: 1;
+  padding: 0.5em;
 }
 .archive .projects-grid .project .info {
-  opacity: 0;
   font-family: "Work Sans", sans-serif;
-  position: absolute;
-  top: auto;
-  bottom: 2em;
-  right: 0;
-  left: 0;
-  background: rgba(0, 82, 185, 0.75);
-  padding: 2em;
-}
-.archive .projects-grid .project .info.no-featured-image {
-  opacity: 1;
+  padding: 0.5em 0;
 }
 .archive .projects-grid .project .info .title {
   border-bottom: none;
+  font-size: 2em;
 }
-.archive .projects-grid .project .info a {
-  color: white;
+.archive .projects-grid .project .info .student {
+  font-size: 1.5em;
 }
 .archive .projects-grid .project .thumbnail {
   /*position: absolute;*/

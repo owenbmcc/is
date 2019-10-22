@@ -33,6 +33,7 @@
 				else : ?>
 				<img src="<?php echo get_template_directory_uri() . '/img/mea.png' ?>">
 			<?php endif; ?>
+			<span>Student Showcase</span>
 		</div>
 		
 		<?php if (!get_query_var( 'slideshow' )): ?>

@@ -40,7 +40,7 @@ if ( post_password_required( $post ) ) {
 		if ( $password == 1 && have_posts() ) : while ( $featured->have_posts() ) : $featured->the_post(); 
 			$post_id = get_the_ID();
 	?>
-		<div class="feature">
+		<div class="feature hidden">
 			<div class="info" style="opacity: 0">
 				<div class="title">
 					<a href="<?php the_permalink(); ?>">
@@ -131,19 +131,20 @@ if ( post_password_required( $post ) ) {
 	}
 
 	function nextFeature() {
-		features[count].style.opacity = 0;
+		features[count].classList.replace('show', 'hidden');
 		if (count < features.length - 1) {
 			count++;
 		} else {
 			count = 0;
 		}
-		features[count].style.opacity = 1;
+		features[count].classList.replace('hidden', 'show');
 		playFeature();
 	}
 
 	/* start slideshow */
 	function start(ev) {
 		document.getElementById('start').style.display = 'none';
+		features[count].classList.replace('hidden', 'show');
 		var el = document.documentElement,
 		rfs = el.requestFullscreen
 			|| el.webkitRequestFullScreen

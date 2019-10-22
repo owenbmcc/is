@@ -27,26 +27,28 @@
 		flex-wrap: wrap;
 		
 		.project {
+			
 			flex: 1;
 			min-width: 50%;
 			position: relative;
 			overflow: hidden;
-			&:hover .info { opacity: 1; }
-			.info {
-				opacity: 0;
-				&.no-featured-image { opacity: 1; }
-				font-family: $title;
-				.title { border-bottom: none };
-				position: absolute;
-				top: auto;
-				bottom: 2em;
-				right: 0;
-				left: 0;
-				background: rgba($text-color, 0.75);
-   				padding: 2em;
+			padding: 0.5em;
 
-   				
-				& a { color: white; }
+			.info {
+				
+				font-family: $title;
+				
+				.title { 
+					border-bottom: none;
+					font-size: 2em;
+				}
+
+				.student {
+					font-size: 1.5em;
+				}
+
+   				padding: 0.5em 0;
+			
 			}
 		
 			.thumbnail {

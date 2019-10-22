@@ -3,7 +3,40 @@
 	z-index: 99;
 }
 
+#logo {
+	position: absolute;
+	cursor: pointer;
+	svg, img {
+		width:  4em;
+		height: 4em;
+		* { transition: fill 300ms; }
+		&:hover * { fill: $bmcc-orange; }
+		position: relative;
+		z-index: 2;
+	}
+
+	span {
+		color: $bmcc-orange;
+		font-size: 2em;
+		font-family: $text;
+		height: 2.5em;
+		vertical-align: middle;
+		display: inline-block;
+		position: relative;
+		z-index: -1;
+		margin-left: 0.5em;
+	}
+}
+
+#home #logo svg {
+	* { fill: $bmcc-blue; }
+	&:hover * { fill: $text-color; }
+}
+
+
 #main-menu {
+	position: relative;
+	z-index: 1;
 
 	.menu-item {
 		line-height: 3em;
@@ -21,22 +54,6 @@
 	.menu-item a { font-size: 0.85em; }
 }
 
-
-#logo {
-	position: absolute;
-	cursor: pointer;
-	svg, img {
-		width:  4em;
-		height: 4em;
-		* { transition: fill 300ms; }
-		&:hover * { fill: $bmcc-orange; }
-	}
-}
-
-#home #logo svg {
-	* { fill: $bmcc-blue; }
-	&:hover * { fill: $text-color; }
-}
 
 .menu {
 
