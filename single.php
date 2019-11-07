@@ -15,8 +15,10 @@
 			<!-- for video posts, show video as featured image, otherwise use featured image
 				does not include youtube or vimeo embeds (for now)  -->
 			<?php
-				/* embedded videos generate enclosure custom field*/
+				/* embedded videos generate enclosure custom field */
 				$video_url = explode( "\n", get_post_meta( $post->ID, 'enclosure', true ) )[0];
+				// echo  serialize( get_post_meta( $post->ID ) );
+				
 				if (!$video_url) {
 					$content_post = get_post($post->ID);
 					$content = $content_post->post_content;

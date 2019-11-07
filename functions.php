@@ -75,6 +75,8 @@ function add_custom_taxonomies() {
 		'show_admin_column' => true,
 		'query_var'         => true,
 		'rewrite'           => array( 'slug' => 'course' ),
+		'show_in_rest' 		=> true,
+		'public'			=> true,
 	);
 
 	register_taxonomy( 'course', array( 'post' ), $course_args );
@@ -105,6 +107,8 @@ function add_custom_taxonomies() {
 		'query_var'         => true,
 		'update_count_callback' => '_update_post_term_count',
 		'rewrite'           => array( 'slug' => 'student' ),
+		'show_in_rest' 		=> true,
+		'public'			=> true,
 	);
 
 	register_taxonomy( 'students', 'post', $student_args );
@@ -131,6 +135,8 @@ function add_custom_taxonomies() {
 		'show_admin_column' => true,
 		'query_var'         => true,
 		'rewrite'           => array( 'slug' => 'major' ),
+		'show_in_rest' 		=> true,
+		'public'			=> true,
 	);
 
 	register_taxonomy( 'major', array( 'post' ), $major_args );

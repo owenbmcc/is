@@ -305,6 +305,10 @@ body#hall-monitor #header {
   position: relative;
   overflow: hidden;
   padding: 0.5em;
+  transition: background-color 150ms ease-in;
+}
+.archive .projects-grid .project:hover {
+  background-color: rgba(0, 82, 185, 0.25);
 }
 .archive .projects-grid .project .info {
   font-family: "Work Sans", sans-serif;
@@ -351,10 +355,8 @@ body#hall-monitor #header {
   position: relative;
 }
 .single .post-header .title {
-  color: white;
   font-size: 4em;
-  background: #b2d4ff;
-  padding-left: 1rem;
+  padding: 0 1rem;
   line-height: 1.25;
   padding-top: 0.25em;
 }

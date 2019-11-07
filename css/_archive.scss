@@ -34,6 +34,13 @@
 			overflow: hidden;
 			padding: 0.5em;
 
+
+			transition: background-color 150ms ease-in;
+
+			&:hover {
+				background-color: rgba($text-color, 0.25);
+			}
+
 			.info {
 				
 				font-family: $title;
