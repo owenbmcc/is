@@ -16,6 +16,15 @@
 	}
 }
 
+/* fix single taxonomy sizes */
+
+@media screen and (max-width: 860px) {
+	.single .course, .single .major {
+		font-size: 1.5em;
+	}
+}
+
+
 /* 1 project per row */
 @media screen and (max-width: 800px) {
 	.archive .projects-grid {
@@ -27,6 +36,11 @@
 
 /* menu takes up two lines */
 @media screen and (min-width: 415px) and (max-width: 700px) {
+
+	.single .course, .single .major {
+		font-size: 1em;
+	}
+
 	.container {
 		margin-top: 7em;
 	}
@@ -35,7 +49,17 @@
 
 
 /* mobile */
-@media (min-width: 320px) and (max-width: 480px){
+@media (min-width: 320px) and (max-width: 480px) {
+
+	#logo {
+		width: 100%;
+		height: 4em;
+		span {
+			margin: 0;
+			letter-spacing: -2px;
+		}
+	}
+
 	#home-link { display: none; }
 	/*#main-menu.menu.open { display: none; }*/
 	.menu { padding: 0; }
@@ -56,6 +80,10 @@
 	#major-menu {
 		margin-top: -4em;
 		position: relative;
+	}
+
+	#content {
+		padding-top: 3em;
 	}
 
 	.page .content {
@@ -99,14 +127,27 @@
 
 	.single {
 		.post {
-			margin-top: -5em;
+			// margin-top: -5em;
+			margin: 0 0.5em;
+			
 			.post-header {
+				grid-template-areas: 
+					"title" 
+					"student" 
+					"course"
+					"major";
+				grid-gap: 0.5em;
 				.title {
 					font-size: 3em;
-					padding-left: 2.5em;
-					left: 0;
-					top: 1em;
-					bottom: auto;
+					text-align: center;
+				}
+				.student {
+					font-size: 1.5em;
+					text-align: center;
+				}
+				.course, .major {
+					text-align: center;
+					font-size: 1em;
 				}
 			}
 		}
@@ -132,7 +173,7 @@
 
 		.post-footer.menu {
 			.menu-item {
-				font-size: 1.5em;
+				font-size: 1.25em;
 				border-left: none;
 				flex: 100%;
 				line-height: 1.25;

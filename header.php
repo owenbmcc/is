@@ -24,19 +24,19 @@
 </head>
 
 <body id="<?php echo  $post->post_name; ?>" <?php body_class( get_query_var( 'slideshow' ) ? 'slideshow' : '' ); ?>>
-	<div id="content">
+	
 		<div id="header">
-		<div id="logo">
-			<?php if( ini_get( 'allow_url_fopen' ) ): 
-					$url =  get_template_directory_uri() . '/img/mea.svg';
-					echo file_get_contents( $url ); 
-				else : ?>
-				<img src="<?php echo get_template_directory_uri() . '/img/mea.png' ?>">
-			<?php endif; ?>
-			<span>Student Showcase</span>
-		</div>
+			<div id="logo">
+				<?php if( ini_get( 'allow_url_fopen' ) ): 
+						$url =  get_template_directory_uri() . '/img/mea.svg';
+						echo file_get_contents( $url ); 
+					else : ?>
+					<img src="<?php echo get_template_directory_uri() . '/img/mea.png' ?>">
+				<?php endif; ?>
+				<span>Student Showcase</span>
+			</div>
 		
-		<?php if (!get_query_var( 'slideshow' )): ?>
+			<?php if (!get_query_var( 'slideshow' )): ?>
 			<div id="main-menu" class="menu <?php echo is_page('slideshow') || is_front_page() || wp_is_mobile() ? '':'open'; ?>">
 				<!-- <div class="menu-item" id="home-link">
 					<a href="<?php echo get_home_url(); ?>">Home</a>
@@ -124,7 +124,10 @@
 				});
 			</script>
 
-		<?php endif; ?>
+			<?php endif; ?>
 		</div>
+
+	<!--  start content -->
+	<div id="content">
 
 	
