@@ -668,8 +668,9 @@ body {
   }
 
   .single .post {
-    margin: 0 0.5em;
+    margin: 0;
     padding: 0;
+    padding-bottom: 1em;
     grid-template-areas: "title" "content" "student" "course" "major";
     grid-gap: 0.5em;
   }
@@ -698,9 +699,10 @@ body {
   .single .major .value, .single .course .value {
     font-size: 0.75em;
   }
-  .single .main-content {
+  .single .content {
     font-size: 1em;
     grid-area: content;
+    margin: 0;
   }
   .single .post-footer.menu .menu-item {
     font-size: 1.25em;
