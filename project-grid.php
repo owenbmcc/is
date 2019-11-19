@@ -1,7 +1,12 @@
 <div class="projects-grid">
+	<?php 
+		$project_counter = 0; 
+		$project_count = 3;
+		/* count 3 then 2 projects */
+	?>
 	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-		<?php if (!has_tag( 'private' )) : ?>
-		
+		<?php if (!has_category( 'private' )) : ?>
+
 		<div  class="project">
 			
 			<div class="thumbnail">
@@ -29,16 +34,26 @@
 			</div>
 		</div>
 		
+		
+		<?php 
+			$project_counter += 1; 
+			if ($project_count == $project_counter) {
+				?>
+			<div class="break"></div>
+		<?php
+			$project_counter = 0;
+			$project_count = ($project_count == 2 ? 3 : 2);
+			}
+		?>
 		<?php endif; ?>
 	<?php endwhile; ?>
 </div>
-	<?php else:  //there are no posts?>
+	<?php else:  //there are no posts ?>
 		<div class="col-sm-12" id="content">
-			<!-- No posts were found for the archive. -->
 			<div class="nocontent">
 				<h2>No Posts Found</h2>
 				<p>It looks like there are no posts for this archive.</p>
 			</div>
 		</div>
 	<?php endif; ?>
-</div><!--end container-->
+</div><!--end projects grid -->

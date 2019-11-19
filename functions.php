@@ -249,6 +249,63 @@ function my_gallery_default_type_set_link( $settings ) {
 }
 add_filter( 'media_view_settings', 'my_gallery_default_type_set_link');
 
+/* 
+	responsive video 
+	https://www.stirtingale.com/guides/2018/11/wordpress-video
+	https://cfxdesign.com/how-to-make-the-wordpress-video-shortcode-responsive/
+	https://wordpress.stackexchange.com/questions/119423/div-around-youtube-video
+*/
+
+add_shortcode( 'video', function( $atts, $content) {
+	$output = wp_video_shortcode( $atts, $content );
+	
+	preg_match( '@src="([^"]+)"@' , $output, $match );
+	$src = array_pop($match);
+	$src = preg_replace('/\?.*/', '', $src);
+
+	return '<div class="wp-video">
+				<video
+					width="1280px"
+					height="720px"
+					poster="'. esc_url(  $atts['poster'] ). '" 
+					controls 
+					src="'.$src.'">
+			</div>';
+} );
+
+/*
+
+https://wordpress.stackexchange.com/questions/254583/add-wrapper-to-only-youtube-videos-via-embed-oembed-html-filter-function
+	
+*/
+add_filter( 'embed_oembed_html', 'wpse_embed_oembed_html', 99, 4 );
+function wpse_embed_oembed_html( $cache, $url, $attr, $post_ID ) {
+    $classes = array();
+
+    // Add these classes to all embeds.
+    $classes_all = array(
+        'responsive-container',
+    );
+
+    // Check for different providers and add appropriate classes.
+
+    if ( false !== strpos( $url, 'vimeo.com' ) ) {
+        $classes[] = 'vimeo';
+    }
+
+    if ( false !== strpos( $url, 'youtube.com' ) ) {
+        $classes[] = 'youtube';
+    }
+
+    $classes = array_merge( $classes, $classes_all );
+
+    return '<div class="' . esc_attr( implode( $classes, ' ' ) ) . '">' . $cache . '</div>';
+}
+
+/* filter next/prev links for single posts 
+	https://learncodeweb.com/wordpress/next-and-previous-post-links-customize-in-wordpress/
+*/
+
 
 /**
  * Select target _blank by default.
@@ -272,5 +329,7 @@ function default_target_blank() {
 }
 add_action( 'admin_footer-post-new.php', 'default_target_blank', 10, 0 );
 add_action( 'admin_footer-post.php', 'default_target_blank', 10, 0 );
+
+// wp_enqueue_script( 'script', get_template_directory_uri() . '/js/loading.js');
 
 ?>

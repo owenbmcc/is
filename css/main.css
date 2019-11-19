@@ -42,7 +42,7 @@ strong {
   width: 4em;
   height: 4em;
   position: relative;
-  z-index: 2;
+  z-index: 9;
 }
 #logo svg *, #logo img * {
   transition: fill 300ms;
@@ -109,8 +109,7 @@ strong {
   flex: 1 0 auto;
   font-size: 1.3em;
   text-align: center;
-  border-bottom: 2px solid #ffb482;
-  border-left: 2px solid #ffb482;
+  border-bottom: 2px solid #0052b9;
   padding: 0 1em;
   cursor: pointer;
   transition: background-color 300ms;
@@ -125,6 +124,9 @@ strong {
 }
 .menu.course .menu-item {
   font-size: 1.5em;
+}
+.menu#major-menu .menu-item, .menu#course-menu .menu-item {
+  border-left: 2px solid #0052b9;
 }
 
 /* styles for slide show and front page */
@@ -246,9 +248,9 @@ body#hall-monitor #header {
 }
 
 /* some common styles between page, grid collections and single projects */
-.container {
-  /*padding: 2.5em 5em;*/
-  margin-top: 2.5em;
+.taxonomy-info {
+  max-width: 1600px;
+  margin: 0.5em auto;
 }
 
 .header {
@@ -289,26 +291,30 @@ body#hall-monitor #header {
 }
 .archive .gallery-header {
   text-align: center;
-  /*background: $bmcc-blue;*/
   line-height: 2;
-  padding-top: 1em;
+  margin-top: 1em;
   font-family: "Josefin Sans", serif;
   border-bottom: 2px solid #ffb482;
 }
 .archive .projects-grid {
   display: flex;
   flex-wrap: wrap;
+  max-width: 1600px;
+  margin: 0.5em auto;
+  justify-content: center;
 }
 .archive .projects-grid .project {
-  flex: 1;
-  min-width: 50%;
   position: relative;
   overflow: hidden;
   padding: 0.5em;
-  transition: background-color 150ms ease-in;
+  padding-bottom: 2em;
+  background: radial-gradient(circle, rgba(2, 0, 36, 0) 0%, rgba(9, 9, 121, 0) 35%, rgba(0, 212, 255, 0) 100%);
+  transition: background 150ms ease-in;
+  flex: 1 1 calc(100%/3);
+  max-width: calc(100%*2/3);
 }
 .archive .projects-grid .project:hover {
-  background-color: rgba(0, 82, 185, 0.25);
+  background: radial-gradient(circle at 90%, #0052b9 0%, #b2d4ff 35%, transparent 100%);
 }
 .archive .projects-grid .project .info {
   font-family: "Work Sans", sans-serif;
@@ -322,7 +328,6 @@ body#hall-monitor #header {
   font-size: 1.5em;
 }
 .archive .projects-grid .project .thumbnail {
-  /*position: absolute;*/
   width: 100%;
   min-height: 240px;
 }
@@ -350,49 +355,118 @@ body#hall-monitor #header {
 }
 
 /* individual student project pages */
-.single a {
-  text-decoration: underline;
+.single {
+  /* sticking post-footer to bottom  */
 }
-.single a:hover {
-  background: linear-gradient(to bottom, transparent 50%, #ffb482 50%, #ffb482 100%);
+.single #content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .single .post {
-  margin: 0 1em;
-}
-.single .post-header {
-  font-family: "Josefin Sans", serif;
-  position: relative;
-  max-width: 1280px;
+  opacity: 0;
+  transition: opacity 400ms ease-in;
   margin: 0 auto;
-  padding-top: 1em;
   display: grid;
-  grid-template-areas: "title course" "student major";
+  grid-template-areas: "title course" "student major" "content content";
   align-items: end;
+  max-width: 1280px;
+  width: 100%;
+  position: relative;
+  padding: 1em;
 }
-.single .post-header .title {
+.single .post a {
+  text-decoration: underline;
+}
+.single .post a:hover {
+  background: linear-gradient(to bottom, transparent 50%, #ffb482 50%, #ffb482 100%);
+}
+.single .title, .single .student, .single .course, .single .major {
+  font-family: "Josefin Sans", serif;
+}
+.single .title {
   font-size: 4em;
   line-height: 1.25;
   grid-area: title;
   margin-left: -0.09em;
   /*  fix for white space on left margin */
 }
-.single .post-header .student {
+.single .student {
   font-size: 2em;
   grid-area: student;
 }
-.single .post-header .course {
+.single .course {
   grid-area: course;
 }
-.single .post-header .major {
+.single .major {
   grid-area: major;
 }
-.single .post-header .major, .single .post-header .course {
+.single .major, .single .course {
   font-size: 1.5em;
   text-align: right;
 }
 .single .content {
-  margin-top: 0;
+  grid-area: content;
+  margin-top: 1em;
   padding: 0;
+  max-width: 1280px;
+  font-family: "Amiri", serif;
+  font-size: 1.5em;
+  color: #0052b9;
+  /* center images */
+  text-align: center;
+  /* temp fix until standards established */
+  /* fixing stupid unresponsive video 
+  	https://cfxdesign.com/how-to-make-the-wordpress-video-shortcode-responsive/ */
+  /* vimeo and youtube  */
+}
+.single .content a:hover {
+  background: linear-gradient(to bottom, transparent 50%, #ffb482 50%, #ffb482 80%, transparent 80%);
+}
+.single .content p {
+  text-align: left;
+}
+.single .content img {
+  max-width: 100%;
+  height: auto;
+}
+.single .content div {
+  margin: 0 auto;
+}
+.single .content iframe {
+  width: 100%;
+  margin: 1em auto;
+}
+.single .content .gallery {
+  display: none;
+}
+.single .content .wp-video {
+  width: 1280px;
+  height: 720px;
+  position: relative;
+}
+.single .content .wp-video iframe,
+.single .content .wp-video video {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+}
+.single .content .wp-video iframe:focus,
+.single .content .wp-video video:focus {
+  outline: none;
+}
+.single .content .responsive-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  overflow: hidden;
+}
+.single .content .responsive-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
 }
 .single .post-footer {
   display: flex;
@@ -400,42 +474,12 @@ body#hall-monitor #header {
 }
 .single .post-footer .menu-item {
   border-bottom: none;
-  border-left-color: #0052b9;
+  border-left: 2px solid #0052b9;
   border-top: 2px solid #0052b9;
   height: 2em;
 }
 .single .post-footer .menu-item:first-child {
   border-left: none;
-}
-.single .main-content {
-  max-width: 1280px;
-  margin: 1em auto;
-  font-family: "Amiri", serif;
-  font-size: 1.5em;
-  color: #0052b9;
-  /* center images */
-  text-align: center;
-  /* temp fix until standards established */
-}
-.single .main-content a:hover {
-  background: linear-gradient(to bottom, transparent 50%, #ffb482 50%, #ffb482 80%, transparent 80%);
-}
-.single .main-content p {
-  text-align: left;
-}
-.single .main-content img {
-  max-width: 100%;
-  height: auto;
-}
-.single .main-content div {
-  margin: 0 auto;
-}
-.single .main-content iframe {
-  width: 100%;
-  margin: 1em auto;
-}
-.single .main-content .gallery {
-  display: none;
 }
 
 /*
@@ -450,6 +494,7 @@ html, body {
 }
 
 body {
+  display: flex;
   flex-direction: column;
 }
 
@@ -475,17 +520,9 @@ body {
 #footer .bottom {
   padding: 0.25em 1em;
   color: #0052b9;
-  border-top: 2px solid #ffb482;
+  border-top: 2px solid #0052b9;
 }
 
-/* default for grid is 2 projects per row */
-/* 3 projects per row */
-@media screen and (min-width: 1200px) {
-  .archive .projects-grid .project {
-    min-width: calc(100%/3);
-    /*max-width: calc(100%/3);*/
-  }
-}
 /* fix menu */
 @media screen and (min-width: 760px) and (max-width: 980px) {
   #course, #major {
@@ -498,10 +535,29 @@ body {
     font-size: 1.5em;
   }
 }
-/* 1 project per row */
-@media screen and (max-width: 800px) {
+/* default for grid is 2 projects per row */
+/* alternate 2/3 projects per row */
+@media screen and (min-width: 1200px) {
+  .archive .projects-grid .break {
+    width: 100%;
+    height: 0;
+  }
   .archive .projects-grid .project {
-    min-width: 100%;
+    min-width: calc(100%/3);
+    max-width: calc(100%*2/3);
+  }
+}
+/* 2 project per gallery row */
+@media screen and (min-width: 720px) and (max-width: 980px) {
+  .archive .projects-grid .project {
+    flex-basis: 50%;
+  }
+}
+/* 1 project per row */
+@media screen and (max-width: 720px) {
+  .archive .projects-grid .project {
+    flex-basis: 100%;
+    max-width: 100%;
   }
 }
 /* menu takes up two lines */
@@ -514,8 +570,7 @@ body {
     margin-top: 7em;
   }
 }
-/* mobile */
-@media (min-width: 320px) and (max-width: 480px) {
+@media (min-device-width: 320px) and (max-device-width: 480px) {
   #logo {
     width: 100%;
     height: 4em;
@@ -534,30 +589,34 @@ body {
     padding: 0;
   }
 
-  #main-menu #about-link {
+  #main-menu, #major-menu, #course-menu {
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 1;
+  }
+  #main-menu #about-link, #major-menu #about-link, #course-menu #about-link {
     padding-left: 1em;
   }
-
-  #main-menu .menu-item {
-    flex: 100%;
+  #main-menu .menu-item, #major-menu .menu-item, #course-menu .menu-item {
+    width: 100%;
     border-left: none;
-  }
-
-  .sub.menu .menu-item {
-    flex: 100%;
-    border-left: none;
-    line-height: 1.5;
     display: flex;
+    align-items: center;
     justify-content: center;
   }
 
-  #major-menu {
-    margin-top: -4em;
-    position: relative;
+  #major-menu, #course-menu {
+    z-index: 2;
+  }
+
+  #course-menu .menu-item {
+    font-size: 1em;
   }
 
   #content {
-    padding-top: 3em;
+    padding-top: 5em;
   }
 
   .page .content {
@@ -570,47 +629,59 @@ body {
   }
 
   .container {
-    margin-top: -5em;
+    margin-top: 0;
   }
 
   .archive .page-header, .page .page-header {
-    margin-top: 1rem;
-    padding: 0 1rem;
+    margin-top: 0;
     font-size: 2em;
-    padding-left: 2.5em;
-    text-align: right;
+    padding: 0 0.25em;
+    text-align: center;
+  }
+  .archive .projects-header, .page .projects-header {
+    font-size: 2em;
+  }
+  .archive .gallery-header, .page .gallery-header {
+    padding: 0;
+    font-size: 2em;
+    line-height: 1.5;
   }
   .archive .content, .page .content {
     padding: 0 1rem;
     margin-top: 0;
+    font-size: 1.25rem;
+  }
+  .archive .projects-grid .project .thumbnail, .page .projects-grid .project .thumbnail {
+    min-height: auto;
   }
   .archive .projects-grid .project .info, .page .projects-grid .project .info {
-    opacity: 1;
-    /*background: none;*/
-    background: rgba(178, 212, 255, 0.95);
     padding: 0;
-    padding-left: 1em;
     bottom: 2em;
     top: auto;
     font-size: 0.75em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .archive .projects-grid .project .info .student, .page .projects-grid .project .info .student {
+    text-align: right;
   }
 
   .single .post {
     margin: 0 0.5em;
-  }
-  .single .post .post-header {
-    grid-template-areas: "title" "student" "course" "major";
+    padding: 0;
+    grid-template-areas: "title" "content" "student" "course" "major";
     grid-gap: 0.5em;
   }
-  .single .post .post-header .title {
+  .single .post .title {
     font-size: 3em;
     text-align: center;
   }
-  .single .post .post-header .student {
+  .single .post .student {
     font-size: 1.5em;
     text-align: center;
   }
-  .single .post .post-header .course, .single .post .post-header .major {
+  .single .post .course, .single .post .major {
     text-align: center;
     font-size: 1em;
   }
@@ -628,8 +699,8 @@ body {
     font-size: 0.75em;
   }
   .single .main-content {
-    padding: 0 1rem;
     font-size: 1em;
+    grid-area: content;
   }
   .single .post-footer.menu .menu-item {
     font-size: 1.25em;
@@ -651,7 +722,6 @@ body {
     top: 6em;
   }
 }
-/* tablet */
 @media (min-width: 768px) and (max-width: 1024px) {
   .mobile #start {
     color: white;

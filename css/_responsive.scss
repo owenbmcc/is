@@ -1,0 +1,64 @@
+
+
+/* fix menu */
+@media screen and (min-width: 760px) and (max-width: 980px) {
+	#course, #major {
+		flex-basis: 50%;
+	}
+}
+
+
+/* fix single taxonomy sizes */
+@media screen and (max-width: 860px) {
+	.single .course, .single .major {
+		font-size: 1.5em;
+	}
+}
+
+/* default for grid is 2 projects per row */
+/* alternate 2/3 projects per row */
+@media screen and (min-width: 1200px) {
+	.archive .projects-grid {
+
+		.break {
+			width: 100%;
+			height: 0;
+		}
+		
+		.project {
+			min-width: calc(100%/3);
+			max-width: calc(100%*2/3);
+		}
+	}
+}
+
+/* 2 project per gallery row */
+@media screen and (min-width: 720px) and (max-width: 980px) {
+	.archive .projects-grid {
+		.project {
+			flex-basis: 50%;
+		}
+	}
+}
+
+/* 1 project per row */
+@media screen and (max-width: 720px) {
+	.archive .projects-grid {
+		.project {
+			flex-basis: 100%;
+			max-width: 100%;
+		}
+	}
+}
+
+/* menu takes up two lines */
+@media screen and (min-width: 415px) and (max-width: 700px) {
+
+	.single .course, .single .major {
+		font-size: 1em;
+	}
+
+	.container {
+		margin-top: 7em;
+	}
+}

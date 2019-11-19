@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<div class="container">
+<div class="taxonomy-info">
 	<?php $taxonomy = get_queried_object(); ?>
 	<div class="title page-header">
 		<?php echo $taxonomy->name; ?>

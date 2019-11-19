@@ -33,7 +33,9 @@
 					else : ?>
 					<img src="<?php echo get_template_directory_uri() . '/img/mea.png' ?>">
 				<?php endif; ?>
-				<span>Student Showcase</span>
+				<?php if (is_front_page() || is_page('slideshow') || wp_is_mobile())  : ?> 
+					<span>Student Showcase</span>
+				<?php endif; ?>
 			</div>
 		
 			<?php if (!get_query_var( 'slideshow' )): ?>

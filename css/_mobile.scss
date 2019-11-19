@@ -1,0 +1,183 @@
+@media (min-device-width: 320px) and (max-device-width: 480px) {
+
+	#logo {
+		width: 100%;
+		height: 4em;
+		span {
+			margin: 0;
+			letter-spacing: -2px;
+		}
+	}
+
+	#home-link { display: none; }
+	/*#main-menu.menu.open { display: none; }*/
+	.menu { padding: 0; }
+
+	#main-menu, #major-menu, #course-menu {
+
+		flex-direction: column;
+		width: 100%;
+		height: 100%;
+		position: fixed;
+		z-index: 1;
+
+		#about-link { padding-left: 1em; }
+
+		.menu-item { 
+			width: 100%;
+			border-left: none;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+	}
+
+	#major-menu, #course-menu {
+		z-index: 2;
+	}
+
+	#course-menu {
+		.menu-item {
+			font-size: 1em;
+		}
+	}
+
+	#content {
+		padding-top: 5em;
+	}
+
+	.page .content {
+		padding: 0 1rem;
+	}
+
+	#footer .two-column {
+		grid-template-columns: 100%;
+		grid-gap: 0;
+	}
+
+	.container {
+		// margin-top: -5em;
+		margin-top: 0;
+	}
+
+	.archive, .page {
+
+		.page-header {
+			margin-top: 0;
+			font-size: 2em;
+			padding: 0 0.25em;
+			text-align: center;
+		}
+
+		.projects-header {
+			font-size: 2em;
+		}
+
+		.gallery-header {
+			padding: 0;
+			font-size: 2em;
+			line-height: 1.5;
+		}
+
+		.content {
+			padding: 0 1rem;
+			margin-top: 0;
+			font-size: 1.25rem;
+		}
+		.projects-grid {
+			
+			.project {
+
+				.thumbnail {
+					min-height: auto;
+				}	
+				
+				.info {
+					padding: 0;
+					bottom: 2em;
+					top: auto;
+					font-size: 0.75em;
+					display: flex;
+					justify-content: space-between;
+					align-items: center;
+
+					.student {
+						text-align: right;
+					}
+				}
+			}
+		}
+	}
+
+	.single {
+		.post {
+			// margin-top: -5em;
+			margin: 0 0.5em;
+			padding: 0;
+			
+			grid-template-areas: 
+				"title"
+				"content"	
+				"student" 
+				"course"
+				"major";
+			grid-gap: 0.5em;
+
+			.title {
+				font-size: 3em;
+				text-align: center;
+			}
+			.student {
+				font-size: 1.5em;
+				text-align: center;
+			}
+			.course, .major {
+				text-align: center;
+				font-size: 1em;
+			}
+		}
+		.info {
+			/*flex-direction: row-reverse;*/
+			font-size: 1em;
+		}
+		.student, .major, .course {
+			flex: 100%;
+			.label {
+				font-size: 5em;
+			}
+		}
+		.major, .course {
+			.value { font-size: 0.75em; }
+		}
+
+		.main-content {
+			// padding: 0 1rem;
+			font-size: 1em;
+			grid-area: content;
+		}
+
+		.post-footer.menu {
+			.menu-item {
+				font-size: 1.25em;
+				border-left: none;
+				flex: 100%;
+				line-height: 1.25;
+				padding: 0.25em 0;
+				height: auto;
+			}
+		}
+	}
+
+	#features .feature {
+		.info {
+			right: 0;
+			left: 0;
+			border-right: none;
+			border-left: none;
+		}
+		.image {
+			display: block;
+			top: 6em;
+		}
+	}
+}
