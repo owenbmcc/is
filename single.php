@@ -34,22 +34,26 @@
 	
 	<div class="post-footer menu">
 		<!--  links to other posts on the site, not organized by category (for now) -->
+		<!--  7 is to filter out private posts  -->
 
-		<div class="prev-work menu-item">
-			<!--  7 is to filter out private posts  -->
-			<?php previous_post_link( '%link', 'Previous Work: %title', false, '7' ); ?>
-		</div>
-		<div class="next-work menu-item">
-			<?php next_post_link( '%link', 'Next Work: %title', false, '7' ); ?>
-		</div>
+	<!-- wtf!!!! -->
+
+		<?php if ($prev = get_previous_post_link('%link', 'Previous: %title', false, '7') ) : ?>
+			<div class="prev-work menu-item">
+				<?php echo $prev ?>
+			</div>
+		<?php endif; ?>
+
+		<?php if ($next = get_next_post_link('%link', 'Next: %title', false, '7') ) : ?>
+			<div class="next-work menu-item">
+				<?php echo $next ?>
+			</div>
+		<?php endif; ?>
 	</div>
 
 	<script>
 		window.addEventListener('load', loader);
-
-		function loader() {
-			/* this is stupid i hate wordpress */
-
+		function loader() { /* this is stupid i hate wordpress */
 			document.getElementById('single-post').style.opacity = 1;
 			const containers = document.getElementsByClassName('wp-video');
 			for (let i = 0; i < containers.length; i++) {
@@ -58,9 +62,6 @@
 			}
 		}
 	</script>
-
-
-	
 
 <?php endwhile; ?>
 <?php endif; ?>

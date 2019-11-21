@@ -81,7 +81,6 @@
 			?>
 			<!-- menu/sub menu script -->
 			<script>
-				const logo = document.getElementById('logo');
 				const major = document.getElementById('major');
 				const course = document.getElementById('course');
 				const mainMenu = document.getElementById('main-menu');
@@ -95,19 +94,7 @@
 					isMobile = false; /* tablets */
 				}
 
-				logo.addEventListener('click', ev => {
-					if (isFrontPage || isMobile) {
-						if (mainMenu.classList.contains('open')) {
-							mainMenu.classList.remove('open');
-							courseMenu.classList.remove('open');
-							majorMenu.classList.remove('open');
-						}
-						else
-							mainMenu.classList.add('open');
-					} else {
-						location.href = homeUrl;
-					}
-				});
+				
 
 				major.addEventListener('click', ev => {
 					courseMenu.classList.remove('open');
@@ -127,6 +114,22 @@
 			</script>
 
 			<?php endif; ?>
+			<script>
+				const logo = document.getElementById('logo');
+				logo.addEventListener('click', ev => {
+					if (isFrontPage || isMobile) {
+						if (mainMenu.classList.contains('open')) {
+							mainMenu.classList.remove('open');
+							courseMenu.classList.remove('open');
+							majorMenu.classList.remove('open');
+						}
+						else
+							mainMenu.classList.add('open');
+					} else {
+						location.href = homeUrl;
+					}
+				});
+			</script>
 		</div>
 
 	<!--  start content -->

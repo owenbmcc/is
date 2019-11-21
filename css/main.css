@@ -127,6 +127,8 @@ strong {
 }
 .menu#major-menu .menu-item, .menu#course-menu .menu-item {
   border-left: 2px solid #0052b9;
+  margin-left: -2px;
+  /* hacky fix for row beginnings */
 }
 
 /* styles for slide show and front page */
@@ -285,7 +287,6 @@ body#hall-monitor #header {
   text-align: center;
   font-family: "Josefin Sans", serif;
   background: #b2d4ff;
-  border-top: 2px solid #ffb482;
   border-bottom: 2px solid #0052b9;
   line-height: 2;
 }
@@ -415,7 +416,6 @@ body#hall-monitor #header {
   color: #0052b9;
   /* center images */
   text-align: center;
-  /* temp fix until standards established */
   /* fixing stupid unresponsive video 
   	https://cfxdesign.com/how-to-make-the-wordpress-video-shortcode-responsive/ */
   /* vimeo and youtube  */
@@ -438,7 +438,18 @@ body#hall-monitor #header {
   margin: 1em auto;
 }
 .single .content .gallery {
-  display: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.single .content .gallery figure {
+  margin: 0;
+  flex: 1 1 50%;
+  padding: 0.5em;
+}
+.single .content .gallery figure:nth-child(3n) {
+  flex-basis: 100%;
+  padding: 0;
 }
 .single .content .wp-video {
   width: 1280px;
@@ -661,7 +672,7 @@ body {
     font-size: 0.75em;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: baseline;
   }
   .archive .projects-grid .project .info .student, .page .projects-grid .project .info .student {
     text-align: right;
@@ -671,7 +682,7 @@ body {
     margin: 0;
     padding: 0;
     padding-bottom: 1em;
-    grid-template-areas: "title" "content" "student" "course" "major";
+    grid-template-areas: "title" "student" "content" "course" "major";
     grid-gap: 0.5em;
   }
   .single .post .title {
@@ -704,11 +715,14 @@ body {
     grid-area: content;
     margin: 0;
   }
+  .single .content p {
+    margin: 0.5em;
+  }
   .single .post-footer.menu .menu-item {
-    font-size: 1.25em;
+    font-size: 1em;
     border-left: none;
     flex: 100%;
-    line-height: 1.25;
+    line-height: 1.5;
     padding: 0.25em 0;
     height: auto;
   }

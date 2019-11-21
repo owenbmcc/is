@@ -10,7 +10,7 @@
 	Start Slideshow
 </button>
 <script> 
-	var duration = "<?= get_post_meta( get_the_ID(), 'duration')[0]  ?>";
+	var duration = "<?= get_post_meta( get_the_ID(), 'duration')[0]  ?>" || 10;
 </script>
 <!--  password protection for hall monitor slideshow -->
 <?php
@@ -91,7 +91,6 @@ if ( post_password_required( $post ) ) {
 		infoDuration = featureDuration / 4;
 	let count = 0;
 	let galleryCount = 0;
-	console.log(featureDuration, galleryDuration, infoDuration);
 
 	/* info appears at beginning and end of each work duration */
 	function showInfo() {
@@ -102,12 +101,14 @@ if ( post_password_required( $post ) ) {
 	}
 
 	function playGallery() {
-		features[count].children[1].children[galleryCount].style.opacity = 0;
+		const items = features[count].children[1].children;
+		items[galleryCount].style.opacity = 0;
 		galleryCount++;
-		features[count].children[1].children[galleryCount].style.opacity = 1;
-		if (galleryCount < features[count].children[1].children.length - 1) {
+		items[galleryCount].style.opacity = 1;
+		if (galleryCount < items.length - 1) {
 			setTimeout(playGallery, galleryDuration);
 		} else {
+			items[galleryCount].style.opacity = 0;
 			galleryCount = 0;
 			showInfo();
 			setTimeout(nextFeature, galleryDuration);
@@ -132,11 +133,8 @@ if ( post_password_required( $post ) ) {
 
 	function nextFeature() {
 		features[count].classList.replace('show', 'hidden');
-		if (count < features.length - 1) {
-			count++;
-		} else {
-			count = 0;
-		}
+		if (count < features.length - 1) count++;
+		else count = 0;
 		features[count].classList.replace('hidden', 'show');
 		playFeature();
 	}

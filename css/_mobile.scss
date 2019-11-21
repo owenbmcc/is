@@ -99,7 +99,7 @@
 					font-size: 0.75em;
 					display: flex;
 					justify-content: space-between;
-					align-items: center;
+					align-items: baseline;
 
 					.student {
 						text-align: right;
@@ -118,8 +118,8 @@
 			
 			grid-template-areas: 
 				"title"
-				"content"	
-				"student" 
+				"student"
+				"content"
 				"course"
 				"major";
 			grid-gap: 0.5em;
@@ -156,14 +156,16 @@
 			font-size: 1em;
 			grid-area: content;
 			margin: 0;
+
+			p { margin: 0.5em; }
 		}
 
 		.post-footer.menu {
 			.menu-item {
-				font-size: 1.25em;
+				font-size: 1em;
 				border-left: none;
 				flex: 100%;
-				line-height: 1.25;
+				line-height: 1.5;
 				padding: 0.25em 0;
 				height: auto;
 			}

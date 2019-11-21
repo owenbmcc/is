@@ -107,7 +107,23 @@
 			margin: 1em auto;
 		}
 
-		.gallery { display: none; } /* temp fix until standards established */
+		.gallery { 
+			// display: none; 
+
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+
+			figure {
+				margin: 0;
+				flex: 1 1 50%;
+				padding: 0.5em;
+				&:nth-child(3n) {
+					flex-basis: 100%;
+					padding: 0;
+				}
+			}
+		} 
 
 		/* fixing stupid unresponsive video 
 			https://cfxdesign.com/how-to-make-the-wordpress-video-shortcode-responsive/ */

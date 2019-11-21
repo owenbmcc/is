@@ -105,6 +105,7 @@
  	&#major-menu, &#course-menu {
  		.menu-item {
  			border-left: 2px solid $text-color;
+			margin-left: -2px; /* hacky fix for row beginnings */
  		}
  	}
 }

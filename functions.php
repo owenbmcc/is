@@ -244,7 +244,7 @@ add_filter( 'the_password_form', 'my_password_form' );
 function my_gallery_default_type_set_link( $settings ) {
 	$settings['galleryDefaults']['link'] = 'none';
 	$settings['galleryDefaults']['columns'] = '1';
-	$settings['galleryDefaults']['size'] = 'full-size';
+	$settings['galleryDefaults']['size'] = 'full';
 	return $settings;
 }
 add_filter( 'media_view_settings', 'my_gallery_default_type_set_link');
