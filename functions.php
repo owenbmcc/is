@@ -315,15 +315,23 @@ function wpse_embed_oembed_html( $cache, $url, $attr, $post_ID ) {
  *
  * @return null
  https://wpartisan.me/tutorials/wordpress-target-blank-checked-default
+
+ adding full size for gallery images
  */
 function default_target_blank() {
  
     ?>
     <script>
-        jQuery(document).on( 'wplink-open', function( wrap ) {
-            if ( jQuery( 'input#wp-link-url' ).val() <= 0 )
-                jQuery( 'input#wp-link-target' ).prop('checked', true );
-        });
+		jQuery(document).on( 'wplink-open', function( wrap ) {
+			console.log('link', wrap);
+			if ( jQuery( 'input#wp-link-url' ).val() <= 0 )
+				jQuery( 'input#wp-link-target' ).prop('checked', true );
+		});
+
+		jQuery(document).on( '__wp-uploader-id-2-open', function( wrap ) {
+			console.log(wrap);
+		});
+
     </script>
     <?php
 }

@@ -1,7 +1,6 @@
 /* individual student project pages */
 
 .single {
-
 	
 	/* sticking post-footer to bottom  */
 	#content {
@@ -22,9 +21,12 @@
 			"title course"
 			"student major"
 			"content content";
+
+		grid-template-rows: max-content max-content auto;
 		align-items: end;
 		max-width: 1280px;
 		width: 100%;
+		min-height: calc(100% - 5em);
 		position: relative;
 		padding: 1em;
 
@@ -74,6 +76,7 @@
 		padding: 0;
 		max-width: 1280px;
 		
+		align-self: center;
 
 		font-family: $body;
 		font-size: 1.5em;
@@ -157,7 +160,6 @@
 			height: 100%;
 			margin: 0;
 		}
-
 	}
 
 	.post-footer {

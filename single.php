@@ -36,8 +36,6 @@
 		<!--  links to other posts on the site, not organized by category (for now) -->
 		<!--  7 is to filter out private posts  -->
 
-	<!-- wtf!!!! -->
-
 		<?php if ($prev = get_previous_post_link('%link', 'Previous: %title', false, '7') ) : ?>
 			<div class="prev-work menu-item">
 				<?php echo $prev ?>
