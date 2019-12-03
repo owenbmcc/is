@@ -15,16 +15,16 @@
 		
 		<!--  taxonomies information -->	
 		<div class="student">
-			<?php echo get_the_term_list( $post->ID, 'students', ' ',', '); ?>
+			<?php echo get_the_term_list( $post->ID, 'students', ' ', ', ' ); ?>
 			<!-- comma for multiple students -->
 		</div>
 		
 		<div class="major">
-			<?php echo get_the_term_list( $post->ID, 'major'); ?>
+			<?php echo get_the_term_list( $post->ID, 'major' ); ?>
 		</div>
 
 		<div class="course">
-			<?php echo get_the_term_list( $post->ID, 'course'); ?>
+			<?php echo get_the_term_list( $post->ID, 'course' ); ?>
 		</div>
 		
 		<div class="content">
@@ -34,15 +34,15 @@
 	
 	<div class="post-footer menu">
 		<!--  links to other posts on the site, not organized by category (for now) -->
-		<!--  7 is to filter out private posts  -->
+		<!--  134 is to filter out private posts  -->
 
-		<?php if ($prev = get_previous_post_link('%link', 'Previous: %title', false, '7') ) : ?>
+		<?php if ($prev = get_previous_post_link( '%link', 'Previous: %title', false, '134' ) ) : ?>
 			<div class="prev-work menu-item">
 				<?php echo $prev ?>
 			</div>
 		<?php endif; ?>
 
-		<?php if ($next = get_next_post_link('%link', 'Next: %title', false, '7') ) : ?>
+		<?php if ($next = get_next_post_link( '%link', 'Next: %title', false, '134' ) ) : ?>
 			<div class="next-work menu-item">
 				<?php echo $next ?>
 			</div>
