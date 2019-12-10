@@ -9,7 +9,7 @@
 		</div>
 		<div class="col">
 			<a href="http://www.bmcc.cuny.edu/media-arts/" target="blank">
-				<h3>MEA Department Website:</h3>
+				<h3>MEA Department Website</h3>
 				<img id="bmcc-logo" src="<?php echo get_template_directory_uri() . '/img/BMCC-Logo_white.gif' ?>">
 			</a>
 		</div>
