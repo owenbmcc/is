@@ -8,7 +8,7 @@
 <div id="features">
 
 	<?php 
-		$featured = new WP_Query( array( 'category_name' => 'featured' ) );
+		$featured = new WP_Query( array( 'category_name' => 'featured', 'orderby' => 'rand' ) );
 		if ( have_posts() ) : while ( $featured->have_posts() ) : $featured->the_post(); 
 			$post_id = get_the_ID();
 	?>
