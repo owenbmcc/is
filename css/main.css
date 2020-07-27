@@ -80,7 +80,43 @@ strong {
 }
 #main-menu .menu-item:first-child {
   border-left: none;
-  padding-left: 3em;
+}
+#main-menu .menu-item a {
+  font-weight: 500;
+}
+#main-menu .menu-item:hover .sub {
+  display: flex;
+  background-color: white;
+}
+#main-menu .sub {
+  position: absolute;
+  left: 0;
+  right: 0;
+  flex-wrap: wrap;
+  background-color: transparent;
+  transition: background-color 300ms ease-in-out;
+  border-bottom: 2px solid #0052b9;
+  padding-top: 1em;
+}
+#main-menu .sub a {
+  font-weight: 300;
+}
+#main-menu .sub .sub-menu-item {
+  line-height: 2.5em;
+  margin: 0 2em;
+}
+#main-menu .course {
+  justify-content: start;
+  padding-left: 2em;
+}
+#main-menu .course-sub-menu-item {
+  line-height: 1.5em;
+  text-align: left;
+  margin: 1em;
+}
+#main-menu .course-sub-menu-item .sub-menu-item {
+  font-size: 0.75em;
+  margin: 0;
 }
 
 #course-menu .menu-item a {
@@ -88,15 +124,11 @@ strong {
 }
 
 .menu {
-  background-color: #b2d4ff;
   color: #0052b9;
   font-family: "Josefin Sans", serif;
   font-weight: 300;
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
   display: none;
 }
 .menu a {
@@ -106,10 +138,8 @@ strong {
   display: flex;
 }
 .menu .menu-item {
-  flex: 1 0 auto;
   font-size: 1.3em;
   text-align: center;
-  border-bottom: 2px solid #0052b9;
   padding: 0 1em;
   cursor: pointer;
   transition: background-color 300ms;
@@ -119,18 +149,9 @@ strong {
 .menu .menu-item:hover {
   background-color: #ffb482;
 }
-.menu .menu-item:hover, .menu .menu-item a:hover {
-  text-decoration: underline;
-}
 .menu.course .menu-item {
   font-size: 1.5em;
 }
-.menu#major-menu .menu-item, .menu#course-menu .menu-item {
-  border-left: 2px solid #0052b9;
-  margin-left: -2px;
-  /* hacky fix for row beginnings */
-}
-
 /* styles for slide show and front page */
 #hall-monitor-password {
   position: relative;

@@ -33,7 +33,6 @@
 	&:hover * { fill: $text-color; }
 }
 
-
 #main-menu {
 	position: relative;
 	z-index: 1;
@@ -46,9 +45,64 @@
 
 	.menu-item:first-child {
 		border-left: none;
-		padding-left: 3em;
+		// padding-left: 3em;
 	}
 	/*display: flex;*/
+
+	.menu-item a {
+		font-weight: 500;
+	}
+
+	.menu-item:hover .sub {
+		display: flex;
+		background-color: white;
+	}
+
+	.sub {
+		position: absolute;
+		left: 0;
+		right: 0;
+		flex-wrap: wrap;
+		background-color: transparent;
+		transition: background-color 300ms ease-in-out;
+		// border-top: 2px solid $text-color;
+		border-bottom: 2px solid $text-color;
+		padding-top: 1em;
+		// flex-direction: column;
+		// align-items: flex-end;
+
+		a {
+			font-weight: 300;
+			// font-size: 1.5rem;
+		}
+
+		.sub-menu-item {
+			line-height: 2.5em;
+			margin: 0 2em;
+		}
+	}
+
+	.course {
+		justify-content: start;
+		padding-left: 2em;
+	}
+
+	.course-sub-menu-item {
+
+		line-height: 1.5em;
+		text-align: left;
+		// a { text-decoration: underline; }
+		margin: 1em;
+
+
+
+		.sub-menu-item {
+			font-size: 0.75em;
+			// a { text-decoration: none; }
+			margin: 0;
+		}
+	}
+
 }
 
 #course-menu {
@@ -58,7 +112,7 @@
 
 .menu {
 
-	background-color: $bmcc-blue;
+	// background-color: $bmcc-blue;
 
 	color: $text-color;
 	& a { color: $text-color; }
@@ -66,22 +120,19 @@
 	font-family: $text;
 	font-weight: 300;
 	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	align-items: center;
-  	justify-content: center;
+  	justify-content: flex-end;
 
 	display: none;
 	
 	&.open { display: flex; }
 	
 	.menu-item {
-		flex: 1 0 auto;
+		// flex: 1 0 auto;
 		font-size: 1.3em;
 		text-align: center;
 		// border-bottom: 2px solid $bmcc-orange;
 		// border-left: 2px solid $bmcc-orange;
-		border-bottom: 2px solid $text-color;
+		// border-bottom: 2px solid $text-color;
 		padding: 0 1em;
 		cursor: pointer;
 		transition: background-color 300ms;
@@ -92,20 +143,24 @@
  		&:hover { 
 			background-color: $bmcc-orange;
  		}
- 		&:hover, & a:hover {
- 			text-decoration: underline;
+
+ 		&:hover {
+ 			// text-decoration: underline;
+ 			// border-bottom: 2px solid $bmcc-orange;
  		}
 	}
 
 	&.course .menu-item {
  		font-size: 1.5em;
-
  	}
 
  	&#major-menu, &#course-menu {
  		.menu-item {
- 			border-left: 2px solid $text-color;
-			margin-left: -2px; /* hacky fix for row beginnings */
+ 			// border-left: 2px solid $text-color;
+			// margin-left: -2px; /* hacky fix for row beginnings */
  		}
  	}
+
+
 }
+

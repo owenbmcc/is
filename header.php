@@ -43,10 +43,71 @@
 				<!-- <div class="menu-item" id="home-link">
 					<a href="<?php echo get_home_url(); ?>">Home</a>
 				</div> -->
+
+
+				
+				<div id="showcase" class="menu-item">
+					<a href="#">Showcase</a>
+					<div id="showcase-menu" class="sub menu">
+						<div class="sub-menu-item">Portfolios</div>
+						<div class="sub-menu-item">Alumni</div>
+					</div>
+				</div>
+
+				<div id="major" class="menu-item">
+					<a href="#">Majors</a>
+					<div id="major-menu" class="sub menu">
+						<?php
+							$tax = get_taxonomy( 'major' );
+							if ($tax) {
+								$terms = get_terms( $tax->name );
+								foreach ( $terms as $term ) {
+									echo '<div class="sub-menu-item">';
+									echo '<a href="' . get_term_link( $term ) . '">' . $term->name . '</a>' ;
+									echo '</div>';
+								}
+							}
+						?>
+					</div>
+				</div>
+
+				<div id="course" class="menu-item">
+					<a href="#">Courses</a>
+					<div id="course-menu" class="course sub menu">
+						<?php
+							$tax = get_taxonomy( 'course' );
+							if ($tax) {
+								// $terms = get_terms( $tax->name );
+								// $parents = get_terms( 'major', array => ( 'parent' => 0) );
+								$parent_terms = get_terms( 'course', array( 'parent' => 0, 'orderby' => 'slug', 'hide_empty' => false ) );
+								foreach ( $parent_terms as $pterm ) {
+									echo '<div class="course-sub-menu-item">';
+									echo '<a href="' . get_term_link( $pterm ) . '">' . $pterm->description . '</a>' ;
+
+
+									$terms = get_terms( 'course', array( 'parent' => $pterm->term_id, 'orderby' => 'slug', 'hide_empty' => false ) );
+
+									foreach ( $terms as $term ) {
+										echo '<div class="sub-menu-item">';
+										echo '<a href="' . get_term_link( $term ) . '">' . $term->name . '</a>' ;
+										echo '</div>';
+									}
+								
+									echo '</div>';
+								}
+
+
+
+							}
+						?>
+					</div>
+				</div>
+
 				<div class="menu-item" id="about-link">
 					<a href="<?php echo get_home_url(); ?>/about/">About</a>
 				</div>
-				<div class="menu-item" >
+
+				<!-- <div class="menu-item" >
 					<a href="<?php echo get_home_url(); ?>/category/animation">Animation</a>
 				</div>
 				<div class="menu-item" >
@@ -57,9 +118,8 @@
 				</div>
 				<div class="menu-item" >
 					<a href="<?php echo get_home_url(); ?>/category/Interactive/">Interactive</a>
-				</div>
-				<div id="major" class="menu-item">Majors</div>
-				<div id="course" class="menu-item">Courses</div>
+				</div> -->
+				
 				
 			</div>
 
@@ -94,27 +154,29 @@
 					isMobile = false; /* tablets */
 				}
 
-				
+				// major.addEventListener('click', ev => {
+				// 	courseMenu.classList.remove('open');
+				// 	if (majorMenu.classList.contains('open'))
+				// 		majorMenu.classList.remove('open');
+				// 	else
+				// 		majorMenu.classList.add('open');
+				// });
 
-				major.addEventListener('click', ev => {
-					courseMenu.classList.remove('open');
-					if (majorMenu.classList.contains('open'))
-						majorMenu.classList.remove('open');
-					else
-						majorMenu.classList.add('open');
-				});
-
-				course.addEventListener('click', ev => {
-					majorMenu.classList.remove('open');
-					if (courseMenu.classList.contains('open'))
-						courseMenu.classList.remove('open');
-					else
-						courseMenu.classList.add('open');
-				});
+				// course.addEventListener('click', ev => {
+				// 	majorMenu.classList.remove('open');
+				// 	if (courseMenu.classList.contains('open'))
+				// 		courseMenu.classList.remove('open');
+				// 	else
+				// 		courseMenu.classList.add('open');
+				// });
 			</script>
 
 			<?php endif; ?>
+			<!-- 
+				use logo as a home link in regular pages
+			 -->
 			<script>
+
 				const logo = document.getElementById('logo');
 				logo.addEventListener('click', ev => {
 					if (isFrontPage || isMobile) {
