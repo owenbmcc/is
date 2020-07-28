@@ -32,6 +32,7 @@ strong {
 #header {
   position: relative;
   z-index: 99;
+  background-color: #b2d4ff;
 }
 
 #logo {
@@ -78,6 +79,9 @@ strong {
   line-height: 3em;
   height: 3em;
 }
+#main-menu #about-link:hover {
+  background-color: unset;
+}
 #main-menu .menu-item:first-child {
   border-left: none;
 }
@@ -86,16 +90,19 @@ strong {
 }
 #main-menu .menu-item:hover .sub {
   display: flex;
-  background-color: white;
+}
+#main-menu .menu-item:hover .sub-nav {
+  display: grid;
 }
 #main-menu .sub {
+  background-color: #b2d4ff;
   position: absolute;
   left: 0;
   right: 0;
   flex-wrap: wrap;
-  background-color: transparent;
   transition: background-color 300ms ease-in-out;
   border-bottom: 2px solid #0052b9;
+  border-top: 2px solid #0052b9;
   padding-top: 1em;
 }
 #main-menu .sub a {
@@ -105,16 +112,24 @@ strong {
   line-height: 2.5em;
   margin: 0 2em;
 }
-#main-menu .course {
-  justify-content: start;
-  padding-left: 2em;
+#main-menu #showcase-menu {
+  grid-template-columns: repeat(5, 1fr);
 }
-#main-menu .course-sub-menu-item {
+#main-menu #showcase-menu #portfolio-nav {
+  grid-column: 4/5;
+}
+#main-menu #showcase-menu #alumni-nav {
+  grid-column: 5/6;
+}
+#main-menu #course-menu {
+  grid-template-columns: repeat(4, 1fr);
+}
+#main-menu .sub-nav-menu-item {
   line-height: 1.5em;
   text-align: left;
   margin: 1em;
 }
-#main-menu .course-sub-menu-item .sub-menu-item {
+#main-menu .sub-nav-menu-item .sub-menu-item {
   font-size: 0.75em;
   margin: 0;
 }
@@ -559,11 +574,6 @@ body {
 }
 
 /* fix menu */
-@media screen and (min-width: 760px) and (max-width: 980px) {
-  #course, #major {
-    flex-basis: 50%;
-  }
-}
 /* fix single taxonomy sizes */
 @media screen and (max-width: 860px) {
   .single .course, .single .major {

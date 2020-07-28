@@ -43,14 +43,28 @@
 				<!-- <div class="menu-item" id="home-link">
 					<a href="<?php echo get_home_url(); ?>">Home</a>
 				</div> -->
-
-
 				
 				<div id="showcase" class="menu-item">
 					<a href="#">Showcase</a>
-					<div id="showcase-menu" class="sub menu">
-						<div class="sub-menu-item">Portfolios</div>
-						<div class="sub-menu-item">Alumni</div>
+					<div id="showcase-menu" class="sub-nav sub menu">
+						<div id="portfolio-nav" class="sub-nav-menu-item">
+							<a href="#">Portfolios</a>
+								<?php
+									$tax = get_taxonomy( 'major' );
+									if ($tax) {
+										$terms = get_terms( $tax->name );
+										foreach ( $terms as $term ) {
+											echo '<div class="sub-menu-item">';
+											echo '<a href="' . get_term_link( $term ) . '">' . $term->name . '</a>' ;
+											echo '</div>';
+										}
+									}
+								?>
+
+						</div>
+						<div id="alumni-nav" class="sub-nav-menu-item">
+							<a href="#">Alumni</a>
+						</div>
 					</div>
 				</div>
 
@@ -73,7 +87,7 @@
 
 				<div id="course" class="menu-item">
 					<a href="#">Courses</a>
-					<div id="course-menu" class="course sub menu">
+					<div id="course-menu" class="sub-nav sub menu">
 						<?php
 							$tax = get_taxonomy( 'course' );
 							if ($tax) {
@@ -81,7 +95,7 @@
 								// $parents = get_terms( 'major', array => ( 'parent' => 0) );
 								$parent_terms = get_terms( 'course', array( 'parent' => 0, 'orderby' => 'slug', 'hide_empty' => false ) );
 								foreach ( $parent_terms as $pterm ) {
-									echo '<div class="course-sub-menu-item">';
+									echo '<div id="course-nav-' . $pterm->name . '" class="sub-nav-menu-item">';
 									echo '<a href="' . get_term_link( $pterm ) . '">' . $pterm->description . '</a>' ;
 
 
@@ -103,7 +117,7 @@
 					</div>
 				</div>
 
-				<div class="menu-item" id="about-link">
+				<div id="about-link" class="menu-item">
 					<a href="<?php echo get_home_url(); ?>/about/">About</a>
 				</div>
 
@@ -123,22 +137,7 @@
 				
 			</div>
 
-			<?php
-				$menus = array( 'major' , 'course' );
-				foreach ( $menus as $menu ) {
-					$taxonomy = get_taxonomy( $menu ); 
-					if ($taxonomy) {
-						$terms = get_terms(  $taxonomy->name );
-						echo '<div id="' . $menu . '-menu" class="sub menu">';
-						foreach ( $terms as $term) {
-							echo '<div class="menu-item">';
-							echo '<a href="' . get_term_link( $term ) . '">' . $term->name . '</a>' ;
-							echo '</div>';
-						}
-						echo '</div>';
-					}
-				}
-			?>
+			
 			<!-- menu/sub menu script -->
 			<script>
 				const major = document.getElementById('major');
