@@ -96,7 +96,7 @@
 								$parent_terms = get_terms( 'course', array( 'parent' => 0, 'orderby' => 'slug', 'hide_empty' => false ) );
 								foreach ( $parent_terms as $pterm ) {
 									echo '<div id="course-nav-' . $pterm->name . '" class="sub-nav-menu-item">';
-									echo '<a href="' . get_term_link( $pterm ) . '">' . $pterm->description . '</a>' ;
+									echo '<a href="' . get_term_link( $pterm ) . '">' . $pterm->name . '</a>' ;
 
 
 									$terms = get_terms( 'course', array( 'parent' => $pterm->term_id, 'orderby' => 'slug', 'hide_empty' => false ) );
