@@ -45,32 +45,26 @@
 				</div> -->
 				
 				<div id="showcase" class="menu-item">
-					<a href="#">Showcase</a>
-					<div id="showcase-menu" class="sub-nav sub menu">
-						<div id="portfolio-nav" class="sub-nav-menu-item">
-							<a href="#">Portfolios</a>
-								<?php
-									$tax = get_taxonomy( 'major' );
-									if ($tax) {
-										$terms = get_terms( $tax->name );
-										foreach ( $terms as $term ) {
-											echo '<div class="sub-menu-item">';
-											echo '<a href="' . get_term_link( $term ) . '">' . $term->name . '</a>' ;
-											echo '</div>';
-										}
+					<a href="#">Portfolios</a>
+					<div id="portfolio-menu" class="sub block menu">
+							<?php
+								$tax = get_taxonomy( 'major' );
+								if ($tax) {
+									$terms = get_terms( $tax->name );
+									foreach ( $terms as $term ) {
+										echo '<div class="sub-menu-item">';
+										echo '<a href="' . get_term_link( $term ) . '">' . $term->name . '</a>' ;
+										echo '</div>';
 									}
-								?>
+								}
+							?>
 
-						</div>
-						<div id="alumni-nav" class="sub-nav-menu-item">
-							<a href="#">Alumni</a>
-						</div>
 					</div>
 				</div>
 
 				<div id="major" class="menu-item">
 					<a href="#">Majors</a>
-					<div id="major-menu" class="sub menu">
+					<div id="major-menu" class="sub block menu">
 						<?php
 							$tax = get_taxonomy( 'major' );
 							if ($tax) {
@@ -87,7 +81,7 @@
 
 				<div id="course" class="menu-item">
 					<a href="#">Courses</a>
-					<div id="course-menu" class="sub-nav sub menu">
+					<div id="course-menu" class="sub-nav flex sub menu">
 						<?php
 							$tax = get_taxonomy( 'course' );
 							if ($tax) {
@@ -95,7 +89,7 @@
 								// $parents = get_terms( 'major', array => ( 'parent' => 0) );
 								$parent_terms = get_terms( 'course', array( 'parent' => 0, 'orderby' => 'slug', 'hide_empty' => false ) );
 								foreach ( $parent_terms as $pterm ) {
-									echo '<div id="course-nav-' . $pterm->name . '" class="sub-nav-menu-item">';
+									echo '<div id="course-nav-' . $pterm->slug . '" class="sub-nav-menu-item">';
 									echo '<a href="' . get_term_link( $pterm ) . '">' . $pterm->name . '</a>' ;
 
 

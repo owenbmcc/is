@@ -52,10 +52,10 @@ strong {
   fill: #ffb482;
 }
 #logo span {
-  color: #ffb482;
+  color: #0052b9;
   font-size: 2em;
   font-family: "Josefin Sans", serif;
-  height: 2.5em;
+  height: 2.75em;
   vertical-align: middle;
   display: inline-block;
   position: relative;
@@ -88,28 +88,39 @@ strong {
 #main-menu .menu-item a {
   font-weight: 500;
 }
-#main-menu .menu-item:hover .sub {
+#main-menu .menu-item:hover .flex {
   display: flex;
 }
 #main-menu .menu-item:hover .sub-nav {
   display: grid;
 }
+#main-menu .menu-item:hover .block {
+  display: block;
+}
 #main-menu .sub {
   background-color: #b2d4ff;
   position: absolute;
+  transition: background-color 300ms ease-in-out;
+  border-top: 2px solid #0052b9;
+  padding: 1em 0;
+}
+#main-menu .sub.block {
+  text-align: left;
+  margin-left: -1em;
+}
+#main-menu .sub#major-menu {
+  margin-left: -4em;
+}
+#main-menu .sub.flex {
   left: 0;
   right: 0;
   flex-wrap: wrap;
-  transition: background-color 300ms ease-in-out;
-  border-bottom: 2px solid #0052b9;
-  border-top: 2px solid #0052b9;
-  padding-top: 1em;
 }
 #main-menu .sub a {
   font-weight: 300;
 }
 #main-menu .sub .sub-menu-item {
-  line-height: 2.5em;
+  line-height: 1.5em;
   margin: 0 2em;
 }
 #main-menu #showcase-menu {
@@ -132,10 +143,6 @@ strong {
 #main-menu .sub-nav-menu-item .sub-menu-item {
   font-size: 0.75em;
   margin: 0;
-}
-
-#course-menu .menu-item a {
-  font-size: 0.85em;
 }
 
 .menu {
