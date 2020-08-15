@@ -45,7 +45,7 @@
 				</div> -->
 				
 				<div id="showcase" class="menu-item">
-					<a href="#">Portfolios</a>
+					<div class="menu-item-title"><a href="#">Portfolios</a></div>
 					<div id="portfolio-menu" class="sub block menu">
 							<?php
 								$tax = get_taxonomy( 'major' );
@@ -137,31 +137,47 @@
 				const major = document.getElementById('major');
 				const course = document.getElementById('course');
 				const mainMenu = document.getElementById('main-menu');
+				const portfolioMenu = document.getElementById('portfolio-menu');
 				const majorMenu = document.getElementById('major-menu');
 				const courseMenu = document.getElementById('course-menu');
 
-				if (isMobile) document.body.classList.add('mobile');
+				if (isMobile) {
+					document.body.classList.add('mobile');
+
+					[majorMenu, portfolioMenu, courseMenu].forEach(menu => {
+						menu.addEventListener('click', ev => {
+							console.log(menu, menu.classList.contains('open'));
+							// menu.classList.remove('open');
+							if (menu.classList.contains('open'))
+								menu.classList.remove('open');
+							else
+								menu.classList.add('open');
+						});
+					});
+
+					// major.addEventListener('click', ev => {
+					// 	courseMenu.classList.remove('open');
+					// 	if (majorMenu.classList.contains('open'))
+					// 		majorMenu.classList.remove('open');
+					// 	else
+					// 		majorMenu.classList.add('open');
+					// });
+
+					// course.addEventListener('click', ev => {
+					// 	majorMenu.classList.remove('open');
+					// 	if (courseMenu.classList.contains('open'))
+					// 		courseMenu.classList.remove('open');
+					// 	else
+					// 		courseMenu.classList.add('open');
+					// });
+				}
 
 				if (window.innerWidth >= 768 && !isFrontPage && !isSlideshow) {
 					mainMenu.classList.add('open');
 					isMobile = false; /* tablets */
 				}
 
-				// major.addEventListener('click', ev => {
-				// 	courseMenu.classList.remove('open');
-				// 	if (majorMenu.classList.contains('open'))
-				// 		majorMenu.classList.remove('open');
-				// 	else
-				// 		majorMenu.classList.add('open');
-				// });
-
-				// course.addEventListener('click', ev => {
-				// 	majorMenu.classList.remove('open');
-				// 	if (courseMenu.classList.contains('open'))
-				// 		courseMenu.classList.remove('open');
-				// 	else
-				// 		courseMenu.classList.add('open');
-				// });
+				
 			</script>
 
 			<?php endif; ?>

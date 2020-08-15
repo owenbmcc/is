@@ -185,3 +185,24 @@
 		}
 	}
 }
+
+.mobile {
+	.menu {
+		background-color: $bmcc-blue;
+		justify-content: flex-start;
+	}
+
+	#main-menu .menu-item {
+		display: block;
+	}
+
+	#main-menu .sub#major-menu {
+ 	    margin-left: -1em; 
+	}
+
+	#main-menu #course-menu {
+		grid-template-columns: 1fr;
+		overflow-y: scroll;
+		height: calc(100vh - 200px);
+	}
+}

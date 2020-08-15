@@ -779,6 +779,22 @@ body {
     top: 6em;
   }
 }
+.mobile .menu {
+  background-color: #b2d4ff;
+  justify-content: flex-start;
+}
+.mobile #main-menu .menu-item {
+  display: block;
+}
+.mobile #main-menu .sub#major-menu {
+  margin-left: -1em;
+}
+.mobile #main-menu #course-menu {
+  grid-template-columns: 1fr;
+  overflow-y: scroll;
+  height: calc(100vh - 200px);
+}
+
 @media (min-width: 768px) and (max-width: 1024px) {
   .mobile #start {
     color: white;
