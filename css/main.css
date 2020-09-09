@@ -82,10 +82,7 @@ strong {
 #main-menu #about-link:hover {
   background-color: unset;
 }
-#main-menu .menu-item:first-child {
-  border-left: none;
-}
-#main-menu .menu-item a {
+#main-menu .menu-item a, #main-menu span.menu-header {
   font-weight: 500;
 }
 #main-menu .menu-item:hover .flex {
@@ -101,7 +98,7 @@ strong {
   background-color: #b2d4ff;
   position: absolute;
   transition: background-color 300ms ease-in-out;
-  border-top: 2px solid #0052b9;
+  border-top: 2px solid white;
   padding: 1em 0;
 }
 #main-menu .sub.block {
@@ -121,7 +118,7 @@ strong {
 }
 #main-menu .sub .sub-menu-item {
   line-height: 1.5em;
-  margin: 0 2em;
+  margin: 0 1.5em;
 }
 #main-menu #showcase-menu {
   grid-template-columns: repeat(5, 1fr);
@@ -163,13 +160,12 @@ strong {
   font-size: 1.3em;
   text-align: center;
   padding: 0 1em;
-  cursor: pointer;
   transition: background-color 300ms;
   /*line-height: 0;*/
   line-height: 2;
 }
 .menu .menu-item:hover {
-  background-color: #ffb482;
+  background-color: white;
 }
 .menu.course .menu-item {
   font-size: 1.5em;
@@ -580,7 +576,6 @@ body {
   border-top: 2px solid #0052b9;
 }
 
-/* fix menu */
 /* fix single taxonomy sizes */
 @media screen and (max-width: 860px) {
   .single .course, .single .major {
@@ -597,6 +592,26 @@ body {
   .archive .projects-grid .project {
     min-width: calc(100%/3);
     max-width: calc(100%*2/3);
+  }
+}
+/* course menu grid */
+@media screen and (min-width: 860px) and (max-width: 1199px) {
+  #main-menu #course-menu {
+    grid-template-columns: repeat(2, 1fr);
+    margin: 0 5%;
+    padding: 0 5%;
+  }
+}
+@media screen and (min-width: 560px) and (max-width: 859px) {
+  #main-menu #course-menu {
+    grid-template-columns: repeat(2, 1fr);
+    margin: 0 5%;
+    padding: 0 1em;
+  }
+}
+@media screen and (max-width: 559px) {
+  #main-menu #course-menu {
+    grid-template-columns: repeat(1, 1fr);
   }
 }
 /* 2 project per gallery row */

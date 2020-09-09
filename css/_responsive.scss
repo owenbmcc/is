@@ -1,13 +1,4 @@
 
-
-/* fix menu */
-@media screen and (min-width: 760px) and (max-width: 980px) {
-	#course, #major {
-		// flex-basis: 50%;
-	}
-}
-
-
 /* fix single taxonomy sizes */
 @media screen and (max-width: 860px) {
 	.single .course, .single .major {
@@ -29,6 +20,29 @@
 			min-width: calc(100%/3);
 			max-width: calc(100%*2/3);
 		}
+	}
+}
+
+/* course menu grid */
+@media screen and (min-width: 860px) and (max-width: 1199px) {
+	#main-menu #course-menu {
+		grid-template-columns: repeat(2, 1fr);
+		margin: 0 5%;
+		padding: 0 5%;
+	}
+}
+
+@media screen and (min-width: 560px) and (max-width: 859px) {
+	#main-menu #course-menu {
+		grid-template-columns: repeat(2, 1fr);
+		margin: 0 5%;
+		padding: 0 1em;
+	}
+}
+
+@media screen and (max-width: 559px) {
+	#main-menu #course-menu {
+		grid-template-columns: repeat(1, 1fr);
 	}
 }
 

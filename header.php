@@ -44,7 +44,7 @@
 					<a href="<?php echo get_home_url(); ?>">Home</a>
 				</div> -->
 				
-				<div id="showcase" class="menu-item">
+				<!-- <div id="showcase" class="menu-item">
 					<div class="menu-item-title"><a href="#">Portfolios</a></div>
 					<div id="portfolio-menu" class="sub block menu">
 							<?php
@@ -60,10 +60,10 @@
 							?>
 
 					</div>
-				</div>
+				</div> -->
 
 				<div id="major" class="menu-item">
-					<a href="#">Majors</a>
+					<span class="menu-header">Majors</span>
 					<div id="major-menu" class="sub block menu">
 						<?php
 							$tax = get_taxonomy( 'major' );
@@ -80,7 +80,7 @@
 				</div>
 
 				<div id="course" class="menu-item">
-					<a href="#">Courses</a>
+					<span class="menu-header">Courses</span>
 					<div id="course-menu" class="sub-nav flex sub menu">
 						<?php
 							$tax = get_taxonomy( 'course' );

@@ -49,12 +49,12 @@
 	}
 
 	.menu-item:first-child {
-		border-left: none;
+		// border-left: none;
 		// padding-left: 3em;
 	}
 	/*display: flex;*/
 
-	.menu-item a {
+	.menu-item a, span.menu-header {
 		font-weight: 500;
 	}
 
@@ -77,7 +77,7 @@
 		
 		// background-color: transparent;
 		transition: background-color 300ms ease-in-out;
-		border-top: 2px solid $text-color;
+		border-top: 2px solid $nav-orange;
 		// border-bottom: 2px solid $text-color;
 
 		// padding-top: 1em;
@@ -108,7 +108,7 @@
 
 		.sub-menu-item {
 			line-height: 1.5em;
-			margin: 0 2em;
+			margin: 0 1.5em;
 		}
 	}
 
@@ -122,11 +122,7 @@
 	}
 
 	#course-menu {
-		// display: grid;
 		grid-template-columns: repeat(4, 1fr);
-
-		// #portfolio-nav { grid-column: 4/5; }
-		// #alumni-nav { grid-column: 5/6; }
 	}
 
 	.sub-nav-menu-item {
@@ -168,14 +164,14 @@
 		// border-left: 2px solid $bmcc-orange;
 		// border-bottom: 2px solid $text-color;
 		padding: 0 1em;
-		cursor: pointer;
+		// cursor: pointer;
 		transition: background-color 300ms;
 
 		/*line-height: 0;*/
 		line-height: 2;
 
  		&:hover { 
-			background-color: $bmcc-orange;
+			background-color: $nav-orange;
  		}
 
  		&:hover {
