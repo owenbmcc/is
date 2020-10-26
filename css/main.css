@@ -546,7 +546,7 @@ html, body {
   height: 100%;
 }
 
-body {
+body.mea-site {
   display: flex;
   flex-direction: column;
 }

@@ -6,11 +6,12 @@
 /* flex sticky footer 
 	https://css-tricks.com/couple-takes-sticky-footer/
 */
+
 html, body {
 	height: 100%;
 }
 
-body {
+body.mea-site {
 	display: flex;
 	flex-direction: column;
 }
