@@ -15,7 +15,7 @@
 				</a>
 			</div>
 		<?php endif; ?>
-		<div class="page-header title">
+		<div class="page-header title main-title">
 			<?php the_title(); ?>
 		</div>
 		<div class="content">

@@ -79,7 +79,7 @@ strong {
   line-height: 3em;
   height: 3em;
 }
-#main-menu #about-link:hover {
+#main-menu #about-link:hover, #main-menu #portfolios-link:hover {
   background-color: unset;
 }
 #main-menu .menu-item a, #main-menu span.menu-header {
@@ -303,7 +303,7 @@ body#hall-monitor #header {
   font-size: 3em;
   color: #0052b9;
 }
-.page .page-header, .post .page-header, .archive .page-header {
+.page .main-title, .post .main-title, .archive .main-title {
   font-family: "Josefin Sans", serif;
   border-bottom: 2px solid #ffb482;
   padding: 0 5rem;
@@ -319,62 +319,79 @@ body#hall-monitor #header {
 }
 
 /* template for any page with grid of projects/collection */
-.archive {
+.archive, #portfolios {
   /* student work or student name */
 }
-.archive .projects-header {
+.archive .projects-header, #portfolios .projects-header {
   text-align: center;
   font-family: "Josefin Sans", serif;
   background: #b2d4ff;
   border-bottom: 2px solid #0052b9;
   line-height: 2;
 }
-.archive .gallery-header {
+.archive .gallery-header, #portfolios .gallery-header {
   text-align: center;
   line-height: 2;
   margin-top: 1em;
   font-family: "Josefin Sans", serif;
   border-bottom: 2px solid #ffb482;
 }
-.archive .projects-grid {
+.archive .projects-grid, #portfolios .projects-grid {
   display: flex;
   flex-wrap: wrap;
   max-width: 1600px;
   margin: 0.5em auto;
   justify-content: center;
 }
-.archive .projects-grid .project {
+.archive .projects-grid .project, #portfolios .projects-grid .project {
   position: relative;
   overflow: hidden;
   padding: 0.5em;
   padding-bottom: 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1 1 calc(100% / 3);
+  max-width: calc(100% * 2 / 3);
+}
+.archive .projects-grid .project.bg, #portfolios .projects-grid .project.bg {
   background: radial-gradient(circle, rgba(2, 0, 36, 0) 0%, rgba(9, 9, 121, 0) 35%, rgba(0, 212, 255, 0) 100%);
   transition: background 150ms ease-in;
-  flex: 1 1 calc(100%/3);
-  max-width: calc(100%*2/3);
 }
-.archive .projects-grid .project:hover {
+.archive .projects-grid .project.bg:hover, #portfolios .projects-grid .project.bg:hover {
   background: radial-gradient(circle at 90%, #0052b9 0%, #b2d4ff 35%, transparent 100%);
 }
-.archive .projects-grid .project .info {
+.archive .projects-grid .project .info, #portfolios .projects-grid .project .info {
   font-family: "Work Sans", sans-serif;
   padding: 0.5em 0;
 }
-.archive .projects-grid .project .info .title {
+.archive .projects-grid .project .info .title, #portfolios .projects-grid .project .info .title {
   border-bottom: none;
   font-size: 2em;
 }
-.archive .projects-grid .project .info .student {
+.archive .projects-grid .project .info .student, #portfolios .projects-grid .project .info .student {
   font-size: 1.5em;
 }
-.archive .projects-grid .project .thumbnail {
+.archive .projects-grid .project .thumbnail, #portfolios .projects-grid .project .thumbnail {
   width: 100%;
   min-height: 240px;
 }
-.archive .projects-grid .project .thumbnail img {
+.archive .projects-grid .project .thumbnail img, #portfolios .projects-grid .project .thumbnail img {
   width: 100%;
   height: auto;
   display: block;
+}
+.archive .projects-grid.portfolios, #portfolios .projects-grid.portfolios {
+  --gap: 2em;
+  padding: 0 5rem;
+  display: inline-flex;
+  margin: 0 0 1em calc(var(--gap) * -1);
+  width: calc(var(--gap) + 100%);
+}
+.archive .projects-grid.portfolios .portfolio, #portfolios .projects-grid.portfolios .portfolio {
+  flex: 1 1 calc(100% / 2 - var(--gap));
+  padding: 0;
+  margin: var(--gap) 0 0 var(--gap);
 }
 
 /* about page + some non facing tutorials */
@@ -576,24 +593,6 @@ body.mea-site {
   border-top: 2px solid #0052b9;
 }
 
-/* fix single taxonomy sizes */
-@media screen and (max-width: 860px) {
-  .single .course, .single .major {
-    font-size: 1.5em;
-  }
-}
-/* default for grid is 2 projects per row */
-/* alternate 2/3 projects per row */
-@media screen and (min-width: 1200px) {
-  .archive .projects-grid .break {
-    width: 100%;
-    height: 0;
-  }
-  .archive .projects-grid .project {
-    min-width: calc(100%/3);
-    max-width: calc(100%*2/3);
-  }
-}
 /* course menu grid */
 @media screen and (min-width: 860px) and (max-width: 1199px) {
   #main-menu #course-menu {
@@ -614,6 +613,24 @@ body.mea-site {
     grid-template-columns: repeat(1, 1fr);
   }
 }
+/* fix single taxonomy sizes */
+@media screen and (max-width: 860px) {
+  .single .course, .single .major {
+    font-size: 1.5em;
+  }
+}
+/* default for grid is 2 projects per row */
+/* alternate 2/3 projects per row */
+@media screen and (min-width: 981px) and (max-width: 1200px) {
+  .archive .projects-grid .break {
+    width: 100%;
+    height: 0;
+  }
+  .archive .projects-grid .project {
+    min-width: calc(100%/3);
+    max-width: calc(100%*2/3);
+  }
+}
 /* 2 project per gallery row */
 @media screen and (min-width: 720px) and (max-width: 980px) {
   .archive .projects-grid .project {
@@ -625,16 +642,6 @@ body.mea-site {
   .archive .projects-grid .project {
     flex-basis: 100%;
     max-width: 100%;
-  }
-}
-/* menu takes up two lines */
-@media screen and (min-width: 415px) and (max-width: 700px) {
-  .single .course, .single .major {
-    font-size: 1em;
-  }
-
-  .container {
-    margin-top: 7em;
   }
 }
 @media (min-device-width: 320px) and (max-device-width: 480px) {

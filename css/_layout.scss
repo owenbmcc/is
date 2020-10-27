@@ -11,16 +11,19 @@
 }
 
 .page, .post, .archive {
+
 	.title {
 		font-size: 3em;
 		color: $text-color;
 	}
-	.page-header {
+
+	.main-title {
 		font-family: $text;
 		border-bottom: 2px solid $bmcc-orange;
 		padding: 0 5rem;
 		margin-top: 5rem;
 	}
+
 	.content {
 		font-size: 1.4em;
 		font-family: $body;

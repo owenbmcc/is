@@ -23,7 +23,7 @@
 	<!-- end wp head -->
 </head>
 
-<body id="<?php echo  $post->post_name; ?>" <?php body_class( get_query_var( 'slideshow' ) ? 'slideshow' : '' ); ?>>
+<body id="<?php echo $post->post_name; ?>" <?php body_class( 'mea-site ' . get_query_var( 'slideshow' ) ? 'slideshow' : '' ); ?>>
 	
 		<div id="header">
 			<div id="logo">
@@ -40,27 +40,10 @@
 		
 			<?php if (!get_query_var( 'slideshow' )): ?>
 			<div id="main-menu" class="menu <?php echo is_page('slideshow') || is_front_page() || wp_is_mobile() ? '':'open'; ?>">
-				<!-- <div class="menu-item" id="home-link">
-					<a href="<?php echo get_home_url(); ?>">Home</a>
-				</div> -->
-				
-				<!-- <div id="showcase" class="menu-item">
-					<div class="menu-item-title"><a href="#">Portfolios</a></div>
-					<div id="portfolio-menu" class="sub block menu">
-							<?php
-								$tax = get_taxonomy( 'major' );
-								if ($tax) {
-									$terms = get_terms( $tax->name );
-									foreach ( $terms as $term ) {
-										echo '<div class="sub-menu-item">';
-										echo '<a href="' . get_term_link( $term ) . '">' . $term->name . '</a>' ;
-										echo '</div>';
-									}
-								}
-							?>
 
-					</div>
-				</div> -->
+				<div id="portfolios-link" class="menu-item">
+					<a href="<?php echo get_home_url(); ?>/portfolios/">Portfolios</a>
+				</div>
 
 				<div id="major" class="menu-item">
 					<span class="menu-header">Majors</span>
@@ -90,8 +73,7 @@
 								$parent_terms = get_terms( 'course', array( 'parent' => 0, 'orderby' => 'slug', 'hide_empty' => false ) );
 								foreach ( $parent_terms as $pterm ) {
 									echo '<div id="course-nav-' . $pterm->slug . '" class="sub-nav-menu-item">';
-									echo '<a href="' . get_term_link( $pterm ) . '">' . $pterm->name . '</a>' ;
-
+									echo   $pterm->name ;
 
 									$terms = get_terms( 'course', array( 'parent' => $pterm->term_id, 'orderby' => 'slug', 'hide_empty' => false ) );
 
@@ -100,12 +82,8 @@
 										echo '<a href="' . get_term_link( $term ) . '">' . $term->name . '</a>' ;
 										echo '</div>';
 									}
-								
 									echo '</div>';
 								}
-
-
-
 							}
 						?>
 					</div>
@@ -115,19 +93,6 @@
 					<a href="<?php echo get_home_url(); ?>/about/">About</a>
 				</div>
 
-				<!-- <div class="menu-item" >
-					<a href="<?php echo get_home_url(); ?>/category/animation">Animation</a>
-				</div>
-				<div class="menu-item" >
-					<a href="<?php echo get_home_url(); ?>/category/film-video/">Film & Video</a>
-				</div>
-				<div class="menu-item" >
-					<a href="<?php echo get_home_url(); ?>/category/graphic-design/">Graphic Design</a>
-				</div>
-				<div class="menu-item" >
-					<a href="<?php echo get_home_url(); ?>/category/Interactive/">Interactive</a>
-				</div> -->
-				
 				
 			</div>
 
@@ -154,22 +119,6 @@
 								menu.classList.add('open');
 						});
 					});
-
-					// major.addEventListener('click', ev => {
-					// 	courseMenu.classList.remove('open');
-					// 	if (majorMenu.classList.contains('open'))
-					// 		majorMenu.classList.remove('open');
-					// 	else
-					// 		majorMenu.classList.add('open');
-					// });
-
-					// course.addEventListener('click', ev => {
-					// 	majorMenu.classList.remove('open');
-					// 	if (courseMenu.classList.contains('open'))
-					// 		courseMenu.classList.remove('open');
-					// 	else
-					// 		courseMenu.classList.add('open');
-					// });
 				}
 
 				if (window.innerWidth >= 768 && !isFrontPage && !isSlideshow) {

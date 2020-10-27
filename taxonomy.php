@@ -1,8 +1,9 @@
 <?php get_header(); ?>
 
+
 <div class="taxonomy-info">
 	<?php $taxonomy = get_queried_object(); ?>
-	<div class="title page-header">
+	<div class="title page-header main-title">
 		<?php echo $taxonomy->name; ?>
 	</div>
 	<div class="content">
