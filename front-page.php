@@ -35,20 +35,33 @@
 		</div>
 	<?php endwhile; endif; wp_reset_postdata(); ?>
 
-	<script>
-		/* fade in/out features */
-		const features = document.getElementsByClassName('feature');
-		let count = 0;
-		features[count].classList.replace('hidden', 'show');
-		function nextFeature() {
-			features[count].classList.replace('show', 'hidden');
-			if (count < features.length - 1) {
-				count ++;
-			} else {
-				count = 0;
-			}
-			features[count].classList.replace('hidden', 'show');
-		}
-		setInterval(nextFeature, 8000);
-	</script>
+
 </div>
+<div id="progress"></div>
+
+<script>
+	/* fade in/out features */
+	const features = document.getElementsByClassName('feature');
+	const progress = document.getElementById('progress');
+	let count = 0;
+	features[count].classList.replace('hidden', 'show');
+	let time = performance.now();
+	function nextFeature() {
+		features[count].classList.replace('show', 'hidden');
+		if (count < features.length - 1) {
+			count ++;
+		} else {
+			count = 0;
+		}
+		features[count].classList.replace('hidden', 'show');
+		time = performance.now();
+	}
+	function updateProgress() {
+		const p = (performance.now() - time) / 8000;
+		progress.style.right = (1 - p) * 50 + '%';
+		progress.style.left = (1 - p) * 50 + '%';
+
+	}
+	setInterval(nextFeature, 8000);
+	setInterval(updateProgress, 1000 / 60);
+</script>

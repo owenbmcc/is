@@ -82,6 +82,8 @@ if ( post_password_required( $post ) ) {
 	<?php endwhile; endif; wp_reset_postdata(); ?>
 </div>
 
+<div id="progress"></div>
+
 <script>
 	/* fade in/out features */
 	const features = document.getElementsByClassName('feature'),

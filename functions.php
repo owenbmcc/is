@@ -267,7 +267,7 @@ add_shortcode( 'video', function( $atts, $content) {
 				<video
 					width="1280px"
 					height="720px"
-					poster="'. esc_url(  $atts['poster'] ). '" 
+					poster="'. esc_url(  isset($atts['poster']) ? $atts['poster'] : '' ). '"
 					controls 
 					src="'.$src.'">
 			</div>';

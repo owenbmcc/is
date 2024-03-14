@@ -23,8 +23,16 @@
 	<!-- end wp head -->
 </head>
 
-<body id="<?php echo $post->post_name; ?>" <?php body_class( 'mea-site ' . get_query_var( 'slideshow' ) ? 'slideshow' : '' ); ?>>
-	
+<?php
+	if (isset($post->post_name)) {
+		$body_id = $post->post_name;
+	} else if (isset($pagename)) {
+		$body_id = $pagename;
+	}
+?>
+
+<body id="<?php echo (isset($body_id) ? $body_id : 'body-id'); ?>" <?php body_class( 'mea-site ' . (get_query_var( 'slideshow' ) ? 'slideshow' : '') ); ?>>
+
 		<div id="header">
 			<div id="logo">
 				<?php if( ini_get( 'allow_url_fopen' ) ): 
@@ -78,9 +86,14 @@
 									$terms = get_terms( 'course', array( 'parent' => $pterm->term_id, 'orderby' => 'slug', 'hide_empty' => false ) );
 
 									foreach ( $terms as $term ) {
-										echo '<div class="sub-menu-item">';
-										echo '<a href="' . get_term_link( $term ) . '">' . $term->name . '</a>' ;
-										echo '</div>';
+										// check for posts in term first
+										$post_query = new WP_Query( array( 'course' => $term->slug ) );
+										$count = $post_query->found_posts;
+										if ($count > 0) {
+											echo '<div class="sub-menu-item">';
+											echo '<a href="' . get_term_link( $term ) . '">' . $term->name . '</a>' ;
+											echo '</div>';
+										}
 									}
 									echo '</div>';
 								}

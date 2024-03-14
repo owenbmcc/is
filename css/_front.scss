@@ -126,3 +126,13 @@ body#hall-monitor {
 	}
 }
 
+#progress {
+	position: fixed;
+	height: 0.5em;
+	opacity: 0.5;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 9;
+	background-color: $orange;
+}
