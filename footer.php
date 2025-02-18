@@ -15,7 +15,7 @@
 		</div>
 	</div>
 	<div class="bottom">
-		&copy; <?php the_date('Y'); ?> <?php bloginfo('name'); ?>
+		&copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?>
 	</div>
 </div>
 
