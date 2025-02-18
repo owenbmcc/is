@@ -5,9 +5,6 @@
 		/* count 3 then 2 projects */
 	?>
 	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-		<?php echo $project_counter; ?>
-		<?php echo has_category('private'); ?>
-		<?php echo the_permalink(); ?>
 		<?php if (!has_category( 'private' ) && has_post_thumbnail()) : ?>
 
 		<div  class="project">
@@ -36,6 +33,7 @@
 				</div>
 			</div>
 		</div>
+		
 		
 		<?php 
 			$project_counter += 1; 
