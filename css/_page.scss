@@ -1,4 +1,6 @@
 /* about page + some non facing tutorials */
+@use 'variables' as *;
+
 .page {
 	.content, .page-header {
 		max-width: 1024px;

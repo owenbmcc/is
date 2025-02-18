@@ -6,6 +6,7 @@
 /* flex sticky footer 
 	https://css-tricks.com/couple-takes-sticky-footer/
 */
+@use 'variables' as *;
 
 html, body {
 	height: 100%;

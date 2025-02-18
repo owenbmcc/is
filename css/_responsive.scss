@@ -1,4 +1,6 @@
 /* course menu grid */
+@use 'variables' as *;
+
 @media screen and (min-width: 860px) and (max-width: 1199px) {
 	#main-menu #course-menu {
 		grid-template-columns: repeat(2, 1fr);

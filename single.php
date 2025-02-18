@@ -33,16 +33,26 @@
 	</div>
 	
 	<div class="post-footer menu">
-		<!--  links to other posts on the site, not organized by category (for now) -->
 		<!--  134 is to filter out private posts  -->
+		<!--  
+			links to other posts on the site
+			not organized by category (for now)
+			filter out portfolio posts (same category does this)
 
-		<?php if ($prev = get_previous_post_link( '%link', 'Previous: %title', false, '134' ) ) : ?>
+			https://stackoverflow.com/questions/16016010/exclude-category-post-in-next-post-link-function
+			<?php next_post_link('format', 'link', 'in_same_cat', 'excluded_categories'); ?>
+
+			maybe?
+			https://wordpress.stackexchange.com/questions/139453/filter-next-post-link-and-previous-post-link-by-meta-key
+		-->
+
+		<?php if ($prev = get_previous_post_link( '%link', 'Previous: %title', true, '134' ) ) : ?>
 			<div class="prev-work menu-item">
 				<?php echo $prev ?>
 			</div>
 		<?php endif; ?>
 
-		<?php if ($next = get_next_post_link( '%link', 'Next: %title', false, '134' ) ) : ?>
+		<?php if ($next = get_next_post_link( '%link', 'Next: %title', true, '134' ) ) : ?>
 			<div class="next-work menu-item">
 				<?php echo $next ?>
 			</div>
@@ -51,7 +61,7 @@
 
 	<script>
 		window.addEventListener('load', loader);
-		function loader() { /* this is stupid i hate wordpress */
+		function loader() {
 			document.getElementById('single-post').style.opacity = 1;
 			const containers = document.getElementsByClassName('wp-video');
 			for (let i = 0; i < containers.length; i++) {

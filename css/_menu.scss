@@ -1,10 +1,12 @@
+@use 'variables' as *;
+
 #header {
 	position: relative;
 	z-index: 99;
 	background-color: $bmcc-blue;
 }
 
-#logo {
+#logo, #hamburger {
 	position: absolute;
 	cursor: pointer;
 	svg, img {
@@ -29,10 +31,21 @@
 	}
 }
 
-#home #logo svg {
-	* { fill: $bmcc-blue; }
-	&:hover * { fill: $text-color; }
+#hamburger {
+	right: 0;
+	fill: $text-color;
+	svg, img {
+		* { fill: $bmcc-orange; }
+		&:hover * { fill: $text-color; }
+	}
 }
+
+#home #logo svg {
+	// * { fill: $bmcc-blue; }
+	// &:hover * { fill: $text-color; }
+}
+
+
 
 #main-menu {
 	position: relative;

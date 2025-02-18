@@ -45,6 +45,17 @@
 					<span>Student Showcase</span>
 				<?php endif; ?>
 			</div>
+
+			<?php if (is_front_page() || is_page('slideshow')): ?>
+				<div id="hamburger">
+					<?php if( ini_get( 'allow_url_fopen' ) ): 
+						$url =  get_template_directory_uri() . '/img/hamburger.svg';
+						echo file_get_contents( $url ); 
+					else : ?>
+					<img src="<?php echo get_template_directory_uri() . '/img/hamburger_orange.png' ?>">
+				<?php endif; ?>
+				</div>
+			<?php endif; ?>
 		
 			<?php if (!get_query_var( 'slideshow' )): ?>
 			<div id="main-menu" class="menu <?php echo is_page('slideshow') || is_front_page() || wp_is_mobile() ? '':'open'; ?>">
@@ -148,20 +159,28 @@
 			 -->
 			<script>
 
-				const logo = document.getElementById('logo');
-				logo.addEventListener('click', ev => {
+				function openMenu() {
 					if (isFrontPage || isMobile) {
 						if (mainMenu.classList.contains('open')) {
 							mainMenu.classList.remove('open');
 							courseMenu.classList.remove('open');
 							majorMenu.classList.remove('open');
-						}
-						else
+							burg.style.display = 'block';
+						} else {
 							mainMenu.classList.add('open');
+							
+							burg.style.display = 'none';
+						}
 					} else {
 						location.href = homeUrl;
 					}
-				});
+				}
+
+				const logo = document.getElementById('logo');
+				logo.addEventListener('click', openMenu);
+
+				const burg = document.getElementById('hamburger');
+				burg.addEventListener('click', openMenu);
 			</script>
 		</div>
 
