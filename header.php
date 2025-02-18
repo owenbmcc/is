@@ -179,8 +179,10 @@
 				const logo = document.getElementById('logo');
 				logo.addEventListener('click', openMenu);
 
-				const burg = document.getElementById('hamburger');
-				burg.addEventListener('click', openMenu);
+				if (isFrontPage) {
+					const burg = document.getElementById('hamburger');
+					burg.addEventListener('click', openMenu);
+				}
 			</script>
 		</div>
 

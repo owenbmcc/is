@@ -299,7 +299,9 @@ function wpse_embed_oembed_html( $cache, $url, $attr, $post_ID ) {
 
     $classes = array_merge( $classes, $classes_all );
 
-    return '<div class="' . esc_attr( implode( $classes, ' ' ) ) . '">' . $cache . '</div>';
+    $html = '<div class="' . esc_attr( implode( ' ', $classes ) ) . '">' . $cache . '</div>';
+
+    return $html;
 }
 
 /* filter next/prev links for single posts 
