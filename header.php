@@ -165,11 +165,10 @@
 							mainMenu.classList.remove('open');
 							courseMenu.classList.remove('open');
 							majorMenu.classList.remove('open');
-							burg.style.display = 'block';
+							if (burg) burg.style.display = 'block';
 						} else {
 							mainMenu.classList.add('open');
-							
-							burg.style.display = 'none';
+							if (burg) burg.style.display = 'none';
 						}
 					} else {
 						location.href = homeUrl;
@@ -179,8 +178,10 @@
 				const logo = document.getElementById('logo');
 				logo.addEventListener('click', openMenu);
 
+				let burg; // burg menu button only on front page
+
 				if (isFrontPage) {
-					const burg = document.getElementById('hamburger');
+					burg = document.getElementById('hamburger');
 					burg.addEventListener('click', openMenu);
 				}
 			</script>
